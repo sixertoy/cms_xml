@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    
+    <!-- Package_Layout_Controller -->
+    <default package="pure_entities" action="datagrid" controller="backend" />
+    
+    <!-- View_Controller_Action -->
+    <view name="backend_datagrid">
+        <update id="root">
+            <call method="setBodyClass"><value>entities</value></call>
+            <update id="content" template="page/html/content/datagrid" type="pure_core\components_datagrid" />
+        </update>
+    </view>
+    
+    <!-- extends="backend/extends/add" -->
+    <view name="backend_add" >
+        <update id="root">
+            <call method="setBodyClass"><value>entities-add-page</value></call>
+            <update id="content">
+                <update id="toolbar" >
+                    <block id="actions" template="page/form/toolbar" />
+                </update>
+                <update id="inner" template="page/content/columns2_left" >
+                    <block id="form"  />
+                    <block id="left"  template="page/html/form" type="pure_core\form" />
+                    <block id="right"  template="page/html/form" type="pure_core\form" />
+                    <block id="toolbar-bottom" template="false" >
+                        <block id="actions-bottom" template="page/form/toolbar" />
+                    </block>
+                </update>
+            </update>
+        </update>
+    </view>
+
+    <view name="backend_edit" />
+
+    
+</layout>

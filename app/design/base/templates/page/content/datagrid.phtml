@@ -1,0 +1,116 @@
+<?php
+$smarty = $this->getSmarty();
+$columns = $this->getColumns();
+?>
+<div class="datagrid widget-box">
+    <div class="widget-title clearfix">
+        <span class="icon"><i class="icon-th icon-white"></i></span>
+        <h5 class="title">Static table</h5>
+    </div>
+    <div class="widget-content">
+        <table
+			width="100%"
+			cellspacing="0"
+			cellpadding="0"
+			style="width:100%;"
+        	class="datagrid table table-hover table-bordered table-striped"
+        >
+            <thead>
+                <tr>
+				<?php foreach( $columns as $column ) :
+					$smarty->assign( "value", false );
+					$smarty->assign( "align", "left" );
+					$smarty->assign( "editable", false );
+					$smarty->assign( "key", $column->getKey() );
+					$smarty->assign( "label", $column->getLabel() );
+					switch( $column->getType() )
+					{
+						case "link":
+							$smarty->display( "tables/link_column.tpl" );
+							break;
+						case "email":
+							$smarty->display( "tables/email_column.tpl" );
+							break;
+						case "identifier":
+							$smarty->assign( "align", "center" );
+							$smarty->assign( "editable", $this->is_editable() );
+							$smarty->display( "tables/identifier_column.tpl" );
+							break;
+						default:
+						case "abstract":
+							$smarty->display( "tables/abstract_column.tpl" );
+							break;
+					}
+				endforeach;
+					if( $this->is_editable() ) :
+					?>
+					<th style="text-align:center;width:60px;">
+						<i class="icon-cog"></i>
+					</th>
+					<?php endif; ?>
+                </tr>
+            </thead>
+			<?php $count_columns = count( $columns ); ?>
+			<tfoot>
+				<tr>
+				<?php if( $this->is_editable() ) : ?>
+            		<?php foreach( $columns as $column ) : ?>
+					<th></th>
+            		<?php endforeach; ?>
+            		<th></th>
+				<?php else : ?>
+            		<th colspan="<?php echo $count_columns; ?>"></th>
+				<?php endif; ?>
+				</tr>
+			</tfoot>
+            <tbody>
+				<?php foreach( $this->getRecords() as $record ) : ?>
+					<?php $id = $this->getRecordIdentifier( $record ); ?>
+            	<tr>
+            		<?php foreach( $columns as $column ) :
+					$smarty->assign( "label", false );
+					$smarty->assign( "align", "left" );
+					$smarty->assign( "key", $column->getKey() );
+					$smarty->assign( "value", $record[ $column->getKey() ] );
+					switch( $column->getType() )
+					{
+						case "link":
+							$smarty->display( "tables/link_column.tpl" );
+							break;
+						case "email":
+							$smarty->display( "tables/email_column.tpl" );
+							break;
+						case "identifier":
+							$smarty->assign( "align", "center" );
+							$smarty->assign( "editable", $this->is_editable() );
+							$smarty->display( "tables/identifier_column.tpl" );
+							break;
+						default:
+						case "abstract":
+							$smarty->display( "tables/abstract_column.tpl" );
+							break;
+					}
+					endforeach;
+					if( $this->is_editable() ) :
+					$view = $this->getCurrentView();
+					$layout = $this->getCurrentLayout();
+					?>
+					<td style="width:60px;">
+						<a
+							title=""
+							class="btn btn-mini btn-success"
+							href="index.php?view=<?php echo $view; ?>&layout=<?php echo $layout; ?>&action=edit&id=<?php echo $id ?>"
+						><i class="icon-white icon-pencil"></i></a>
+						<a
+							title=""
+							class="btn btn-mini btn-danger"
+							href="index.php?view=<?php echo $view; ?>&layout=<?php echo $layout; ?>&action=delete&id=<?php echo $id ?>"
+						><i class="icon-white icon-trash"></i></a>
+					</td>
+					<?php endif; ?>
+            	</tr>
+            	<?php endforeach; ?>
+            </tbody>
+		</table>
+    </div>
+</div>

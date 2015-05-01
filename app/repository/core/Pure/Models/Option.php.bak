@@ -1,0 +1,165 @@
+<?php
+
+namespace Pure\Models;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Models\Option
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="pr_options")
+ */
+class Option
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $value;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $modified;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of id.
+     *
+     * @param integer $id
+     * @return \Pure\Models\Option
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Models\Option
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of value.
+     *
+     * @param string $value
+     * @return \Pure\Models\Option
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of value.
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set the value of created.
+     *
+     * @param datetime $created
+     * @return \Pure\Models\Option
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created.
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set the value of modified.
+     *
+     * @param datetime $modified
+     * @return \Pure\Models\Option
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of modified.
+     *
+     * @return datetime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function __sleep()
+    {
+        return array('id', 'name', 'value', 'created', 'modified');
+    }
+}

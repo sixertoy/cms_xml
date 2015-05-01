@@ -1,0 +1,1 @@
+<link rel="{$rel}" type="text/css" media="screen" href="{$file}"  />

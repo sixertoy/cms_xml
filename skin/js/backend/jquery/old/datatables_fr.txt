@@ -1,0 +1,12 @@
+{
+	"sUrl": "",
+	"sInfoPostFix":"",
+	"sSearch":"Rechercher",
+	"sProcessing":"Chargement",
+	"sInfoEmpty":"Aucune entr&eacute;e",
+	"sZeroRecords":"Aucun r&eacute;sultat.",
+	"sInfoFiltered":"( sur un total de _MAX_ entr&eacute;e(s) )",
+	"sInfo":"_END_ sur un total de _TOTAL_ entr&eacute;e(s)",
+	"sLengthMenu":"Nomber d'&eacute;l&eacute;ments par page _MENU_",
+	"oPaginate":{ "sFirst":"Premi&eacute;re","sPrevious":"Pr&eacute;c&eacute;dente","sNext":"Suivante","sLast":"Derni&eacute;re" }
+}

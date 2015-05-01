@@ -1,0 +1,87 @@
+<div class="form-elements">
+<?php
+$smarty = $this->getSmarty();
+$form = $this->getHelper()->getForm(); 
+$form_elements = $form->getElements();
+
+// Autofocus sur le premier element de la liste
+$autofocus = true;
+foreach( $form_elements as $input )
+{
+	$type = $input->getType();
+	$smarty->assign( "id", $input->getId() );
+	$smarty->assign( "autofocus", $autofocus );
+	$smarty->assign( "label", $input->getLabel() );
+	$smarty->assign( "classes", $input->getClasses() );
+	$smarty->assign( "disabled", $input->isDisabled() );
+	$smarty->assign( "required", $input->isRequired() );
+	$smarty->assign( "readonly", $input->isReadOnly() );
+	$smarty->assign( "description", $input->getDescription() );
+	switch( $type )
+	{
+		case "select":
+			if( count( $input->getOptions() ) )
+			{
+				$smarty->assign( "options", $input->getOptions() );
+				$smarty->assign( "selected", $input->getValue() );
+				$smarty->display( "inputs/select.tpl" );
+			}
+			break;
+		case "clonable":
+			$smarty->assign( "options", $input->getOptions() );
+			$smarty->display( "inputs/components/clonable.tpl" );
+			break;
+		case "textarea":
+			$smarty->assign( "width", 43 );
+			$smarty->assign( "height", 15 );
+			$smarty->assign( "value", $input->getValue() );
+			$smarty->display( "inputs/textarea.tpl" );
+			break;
+		case "file":
+			$smarty->display( "inputs/file.tpl" );
+			break;
+		case "checkbox":
+			$smarty->assign( "checked", $input->getChecked() );
+			$smarty->display( "inputs/checkbox.tpl" );
+			break;
+		case "password":
+			$smarty->assign( "value", $input->getValue() );
+			$smarty->assign( "need_validation", $input->getNeedValidation() );
+			$smarty->display( "inputs/password.tpl" );
+			break;
+		case "hidden":
+			$smarty->assign( "value", $input->getValue() );
+			$smarty->display( "inputs/hidden.tpl" );
+			break;
+		case "email":
+			$smarty->assign( "value", $input->getValue() );
+			$smarty->display( "inputs/email.tpl" );
+			break;
+		case "readonly":
+			$smarty->assign( "value", $input->getValue() );
+			$smarty->display( "inputs/readonly.tpl" );
+			break;
+		default:
+			$smarty->assign( "type", $type );
+			$smarty->assign( "value", $input->getValue() );
+			$smarty->display( "inputs/abstract.tpl" );
+			break;
+	}
+	$autofocus = false;
+}
+?>
+<script type="text/javascript">
+//<![CDATA
+     /**
+      * Verifie la validite d'un password
+      */
+     function validatePassword( password, confirm )
+	{ 
+    	var value = $.trim( password.value );
+    	var confirm = $.trim( confirm.value );
+    	if ( value != confirm || value == "" || confirm == "" ) confirm.setCustomValidity( "Password incorrect" );
+    	else confirm.setCustomValidity( "" );
+	}
+//]]>
+</script>
+</div>

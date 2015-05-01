@@ -1,0 +1,2220 @@
+<h1>Doctrine 2.0 Annotation Classes</h1>
+<h2>Information:</h2>
+<ul>
+<li>Filename: Entity</li>
+<li>Memory usage: 1.750 MB</li>
+<li>Time: 0.606 second(s)</li>
+</ul>
+<h2>Result:</h2>
+<textarea cols="100" rows="50">
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Article
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\ArticleRepository")
+ * @ORM\Table(name="pr_articles", indexes={@ORM\Index(name="fk_articles_posts_idx", columns={"post_id"})})
+ */
+class Article
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="bigint")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $article_id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $content;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "merge", "remove", "detach", "all"})
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="post_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $post;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of article_id.
+     *
+     * @param integer $article_id
+     * @return \Pure\Entity\Article
+     */
+    public function setArticleId($article_id)
+    {
+        $this->article_id = $article_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of article_id.
+     *
+     * @return integer
+     */
+    public function getArticleId()
+    {
+        return $this->article_id;
+    }
+
+    /**
+     * Set the value of content.
+     *
+     * @param string $content
+     * @return \Pure\Entity\Article
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of content.
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set Post entity (one to one).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Article
+     */
+    public function setPost(Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity (one to one).
+     *
+     * @return \Pure\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function __sleep()
+    {
+        return array('article_id', 'post_id', 'content');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Entity
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\EntityRepository")
+ * @ORM\Table(name="pr_entities")
+ */
+class Entity
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $entities_id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $label;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $classname;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $modified;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of entities_id.
+     *
+     * @param integer $entities_id
+     * @return \Pure\Entity\Entity
+     */
+    public function setEntitiesId($entities_id)
+    {
+        $this->entities_id = $entities_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of entities_id.
+     *
+     * @return integer
+     */
+    public function getEntitiesId()
+    {
+        return $this->entities_id;
+    }
+
+    /**
+     * Set the value of label.
+     *
+     * @param string $label
+     * @return \Pure\Entity\Entity
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of classname.
+     *
+     * @param string $classname
+     * @return \Pure\Entity\Entity
+     */
+    public function setClassname($classname)
+    {
+        $this->classname = $classname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of classname.
+     *
+     * @return string
+     */
+    public function getClassname()
+    {
+        return $this->classname;
+    }
+
+    /**
+     * Set the value of created.
+     *
+     * @param datetime $created
+     * @return \Pure\Entity\Entity
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created.
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set the value of modified.
+     *
+     * @param datetime $modified
+     * @return \Pure\Entity\Entity
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of modified.
+     *
+     * @return datetime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function __sleep()
+    {
+        return array('entities_id', 'label', 'classname', 'created', 'modified');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Media
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\MediaRepository")
+ * @ORM\Table(name="pr_medias", indexes={@ORM\Index(name="fk_medias_posts_idx", columns={"post_id"})})
+ */
+class Media
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="bigint")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $media_id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $mime_type;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "merge", "remove", "detach", "all"})
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="post_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $post;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of media_id.
+     *
+     * @param integer $media_id
+     * @return \Pure\Entity\Media
+     */
+    public function setMediaId($media_id)
+    {
+        $this->media_id = $media_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of media_id.
+     *
+     * @return integer
+     */
+    public function getMediaId()
+    {
+        return $this->media_id;
+    }
+
+    /**
+     * Set the value of mime_type.
+     *
+     * @param string $mime_type
+     * @return \Pure\Entity\Media
+     */
+    public function setMimeType($mime_type)
+    {
+        $this->mime_type = $mime_type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of mime_type.
+     *
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->mime_type;
+    }
+
+    /**
+     * Set Post entity (one to one).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Media
+     */
+    public function setPost(Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity (one to one).
+     *
+     * @return \Pure\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function __sleep()
+    {
+        return array('media_id', 'post_id', 'mime_type');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Option
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\OptionRepository")
+ * @ORM\Table(name="pr_options")
+ */
+class Option
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $value;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $modified;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of id.
+     *
+     * @param integer $id
+     * @return \Pure\Entity\Option
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Entity\Option
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of value.
+     *
+     * @param string $value
+     * @return \Pure\Entity\Option
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of value.
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set the value of created.
+     *
+     * @param datetime $created
+     * @return \Pure\Entity\Option
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created.
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set the value of modified.
+     *
+     * @param datetime $modified
+     * @return \Pure\Entity\Option
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of modified.
+     *
+     * @return datetime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function __sleep()
+    {
+        return array('id', 'name', 'value', 'created', 'modified');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Page
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\PageRepository")
+ * @ORM\Table(name="pr_pages", indexes={@ORM\Index(name="fk_pages_posts_idx", columns={"post_id"})})
+ */
+class Page
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $page_id;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $public;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $position;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "merge", "remove", "detach", "all"})
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="post_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $post;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of page_id.
+     *
+     * @param integer $page_id
+     * @return \Pure\Entity\Page
+     */
+    public function setPageId($page_id)
+    {
+        $this->page_id = $page_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of page_id.
+     *
+     * @return integer
+     */
+    public function getPageId()
+    {
+        return $this->page_id;
+    }
+
+    /**
+     * Set the value of public.
+     *
+     * @param boolean $public
+     * @return \Pure\Entity\Page
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of public.
+     *
+     * @return boolean
+     */
+    public function getPublic()
+    {
+        return $this->public;
+    }
+
+    /**
+     * Set the value of position.
+     *
+     * @param integer $position
+     * @return \Pure\Entity\Page
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of position.
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set Post entity (one to one).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Page
+     */
+    public function setPost(Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity (one to one).
+     *
+     * @return \Pure\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function __sleep()
+    {
+        return array('page_id', 'post_id', 'public', 'position');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Pure\Entity\Post
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\PostRepository")
+ * @ORM\Table(name="pr_posts", indexes={@ORM\Index(name="fk_posts_users_idx", columns={"user_id"}), @ORM\Index(name="fk_posts_types_idx", columns={"type_id"}), @ORM\Index(name="fk_posts_terms_idx", columns={"term_id"}), @ORM\Index(name="fk_posts_posts1_idx", columns={"parent_id"})})
+ */
+class Post
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="bigint")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $post_id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $route;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $status;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $modified;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="post")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="post_id")
+     */
+    protected $posts;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="posts")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="type_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $type;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Term", inversedBy="posts")
+     * @ORM\JoinColumn(name="term_id", referencedColumnName="term_id", onDelete="CASCADE")
+     */
+    protected $term;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="posts")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="post_id", onDelete="CASCADE")
+     */
+    protected $post;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+
+    /**
+     * Set the value of post_id.
+     *
+     * @param integer $post_id
+     * @return \Pure\Entity\Post
+     */
+    public function setPostId($post_id)
+    {
+        $this->post_id = $post_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of post_id.
+     *
+     * @return integer
+     */
+    public function getPostId()
+    {
+        return $this->post_id;
+    }
+
+    /**
+     * Set the value of title.
+     *
+     * @param string $title
+     * @return \Pure\Entity\Post
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of title.
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of description.
+     *
+     * @param string $description
+     * @return \Pure\Entity\Post
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Entity\Post
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of route.
+     *
+     * @param string $route
+     * @return \Pure\Entity\Post
+     */
+    public function setRoute($route)
+    {
+        $this->route = $route;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of route.
+     *
+     * @return string
+     */
+    public function getRoute()
+    {
+        return $this->route;
+    }
+
+    /**
+     * Set the value of status.
+     *
+     * @param string $status
+     * @return \Pure\Entity\Post
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status.
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of created.
+     *
+     * @param datetime $created
+     * @return \Pure\Entity\Post
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created.
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set the value of modified.
+     *
+     * @param datetime $modified
+     * @return \Pure\Entity\Post
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of modified.
+     *
+     * @return datetime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * Add Post entity to collection (one to many).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Post
+     */
+    public function addPost(Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity collection (one to many).
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Set User entity (many to one).
+     *
+     * @param \Pure\Entity\User $user
+     * @return \Pure\Entity\Post
+     */
+    public function setUser(User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get User entity (many to one).
+     *
+     * @return \Pure\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set Type entity (many to one).
+     *
+     * @param \Pure\Entity\Type $type
+     * @return \Pure\Entity\Post
+     */
+    public function setType(Type $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get Type entity (many to one).
+     *
+     * @return \Pure\Entity\Type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set Term entity (many to one).
+     *
+     * @param \Pure\Entity\Term $term
+     * @return \Pure\Entity\Post
+     */
+    public function setTerm(Term $term = null)
+    {
+        $this->term = $term;
+
+        return $this;
+    }
+
+    /**
+     * Get Term entity (many to one).
+     *
+     * @return \Pure\Entity\Term
+     */
+    public function getTerm()
+    {
+        return $this->term;
+    }
+
+    /**
+     * Set Post entity (many to one).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Post
+     */
+    public function setPost(Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity (many to one).
+     *
+     * @return \Pure\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function __sleep()
+    {
+        return array('post_id', 'title', 'description', 'name', 'route', 'status', 'created', 'modified', 'user_id', 'type_id', 'term_id', 'parent_id');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Pure\Entity\Role
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\RoleRepository")
+ * @ORM\Table(name="pr_roles")
+ */
+class Role
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $role_id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $label;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="User", mappedBy="role")
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="role_id", nullable=false)
+     */
+    protected $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
+
+    /**
+     * Set the value of role_id.
+     *
+     * @param integer $role_id
+     * @return \Pure\Entity\Role
+     */
+    public function setRoleId($role_id)
+    {
+        $this->role_id = $role_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of role_id.
+     *
+     * @return integer
+     */
+    public function getRoleId()
+    {
+        return $this->role_id;
+    }
+
+    /**
+     * Set the value of label.
+     *
+     * @param string $label
+     * @return \Pure\Entity\Role
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Entity\Role
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add User entity to collection (one to many).
+     *
+     * @param \Pure\Entity\User $user
+     * @return \Pure\Entity\Role
+     */
+    public function addUser(User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get User entity collection (one to many).
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    public function __sleep()
+    {
+        return array('role_id', 'label', 'name');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Session
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\SessionRepository")
+ * @ORM\Table(name="pr_sessions")
+ */
+class Session
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $sid;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $data;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $locked;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $attempt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $modified;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of id.
+     *
+     * @param integer $id
+     * @return \Pure\Entity\Session
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of sid.
+     *
+     * @param string $sid
+     * @return \Pure\Entity\Session
+     */
+    public function setSid($sid)
+    {
+        $this->sid = $sid;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of sid.
+     *
+     * @return string
+     */
+    public function getSid()
+    {
+        return $this->sid;
+    }
+
+    /**
+     * Set the value of data.
+     *
+     * @param string $data
+     * @return \Pure\Entity\Session
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of data.
+     *
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Set the value of locked.
+     *
+     * @param boolean $locked
+     * @return \Pure\Entity\Session
+     */
+    public function setLocked($locked)
+    {
+        $this->locked = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of locked.
+     *
+     * @return boolean
+     */
+    public function getLocked()
+    {
+        return $this->locked;
+    }
+
+    /**
+     * Set the value of attempt.
+     *
+     * @param integer $attempt
+     * @return \Pure\Entity\Session
+     */
+    public function setAttempt($attempt)
+    {
+        $this->attempt = $attempt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of attempt.
+     *
+     * @return integer
+     */
+    public function getAttempt()
+    {
+        return $this->attempt;
+    }
+
+    /**
+     * Set the value of created.
+     *
+     * @param datetime $created
+     * @return \Pure\Entity\Session
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created.
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set the value of modified.
+     *
+     * @param datetime $modified
+     * @return \Pure\Entity\Session
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of modified.
+     *
+     * @return datetime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function __sleep()
+    {
+        return array('id', 'sid', 'data', 'locked', 'attempt', 'created', 'modified');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Entity\Status
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\StatusRepository")
+ * @ORM\Table(name="pr_status")
+ */
+class Status
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $status_id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $label;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $publish_date;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of status_id.
+     *
+     * @param integer $status_id
+     * @return \Pure\Entity\Status
+     */
+    public function setStatusId($status_id)
+    {
+        $this->status_id = $status_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status_id.
+     *
+     * @return integer
+     */
+    public function getStatusId()
+    {
+        return $this->status_id;
+    }
+
+    /**
+     * Set the value of label.
+     *
+     * @param string $label
+     * @return \Pure\Entity\Status
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Entity\Status
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of publish_date.
+     *
+     * @param datetime $publish_date
+     * @return \Pure\Entity\Status
+     */
+    public function setPublishDate($publish_date)
+    {
+        $this->publish_date = $publish_date;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of publish_date.
+     *
+     * @return datetime
+     */
+    public function getPublishDate()
+    {
+        return $this->publish_date;
+    }
+
+    public function __sleep()
+    {
+        return array('status_id', 'label', 'name', 'publish_date');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Pure\Entity\Term
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\TermRepository")
+ * @ORM\Table(name="pr_terms")
+ */
+class Term
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="bigint")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $term_id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $label;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="term")
+     * @ORM\JoinColumn(name="term_id", referencedColumnName="term_id")
+     */
+    protected $posts;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+
+    /**
+     * Set the value of term_id.
+     *
+     * @param integer $term_id
+     * @return \Pure\Entity\Term
+     */
+    public function setTermId($term_id)
+    {
+        $this->term_id = $term_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of term_id.
+     *
+     * @return integer
+     */
+    public function getTermId()
+    {
+        return $this->term_id;
+    }
+
+    /**
+     * Set the value of label.
+     *
+     * @param string $label
+     * @return \Pure\Entity\Term
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Entity\Term
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add Post entity to collection (one to many).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Term
+     */
+    public function addPost(Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity collection (one to many).
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function __sleep()
+    {
+        return array('term_id', 'label', 'name');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Pure\Entity\Type
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\TypeRepository")
+ * @ORM\Table(name="pr_types")
+ */
+class Type
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $type_id;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $label;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="type")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="type_id", nullable=false)
+     */
+    protected $posts;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+
+    /**
+     * Set the value of type_id.
+     *
+     * @param integer $type_id
+     * @return \Pure\Entity\Type
+     */
+    public function setTypeId($type_id)
+    {
+        $this->type_id = $type_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of type_id.
+     *
+     * @return integer
+     */
+    public function getTypeId()
+    {
+        return $this->type_id;
+    }
+
+    /**
+     * Set the value of label.
+     *
+     * @param string $label
+     * @return \Pure\Entity\Type
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of name.
+     *
+     * @param string $name
+     * @return \Pure\Entity\Type
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add Post entity to collection (one to many).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\Type
+     */
+    public function addPost(Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity collection (one to many).
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function __sleep()
+    {
+        return array('type_id', 'label', 'name');
+    }
+}
+
+<?php
+
+namespace Pure\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Pure\Entity\User
+ *
+ * @ORM\Entity(repositoryClass="Pure\Proxy\UserRepository")
+ * @ORM\Table(name="pr_users", indexes={@ORM\Index(name="fk_users_roles_idx", columns={"role_id"})})
+ */
+class User
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $user_id;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    protected $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    protected $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    protected $birthday;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    protected $username;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    protected $password;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $modified;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="user")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false)
+     */
+    protected $posts;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="users")
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="role_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $role;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+
+    /**
+     * Set the value of user_id.
+     *
+     * @param integer $user_id
+     * @return \Pure\Entity\User
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user_id.
+     *
+     * @return integer
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * Set the value of firstname.
+     *
+     * @param string $firstname
+     * @return \Pure\Entity\User
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of firstname.
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set the value of lastname.
+     *
+     * @param string $lastname
+     * @return \Pure\Entity\User
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lastname.
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set the value of email.
+     *
+     * @param string $email
+     * @return \Pure\Entity\User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of birthday.
+     *
+     * @param string $birthday
+     * @return \Pure\Entity\User
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of birthday.
+     *
+     * @return string
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Set the value of username.
+     *
+     * @param string $username
+     * @return \Pure\Entity\User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of username.
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set the value of password.
+     *
+     * @param string $password
+     * @return \Pure\Entity\User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of password.
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set the value of created.
+     *
+     * @param datetime $created
+     * @return \Pure\Entity\User
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created.
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set the value of modified.
+     *
+     * @param datetime $modified
+     * @return \Pure\Entity\User
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of modified.
+     *
+     * @return datetime
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * Add Post entity to collection (one to many).
+     *
+     * @param \Pure\Entity\Post $post
+     * @return \Pure\Entity\User
+     */
+    public function addPost(Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity collection (one to many).
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Set Role entity (many to one).
+     *
+     * @param \Pure\Entity\Role $role
+     * @return \Pure\Entity\User
+     */
+    public function setRole(Role $role = null)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get Role entity (many to one).
+     *
+     * @return \Pure\Entity\Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function __sleep()
+    {
+        return array('user_id', 'firstname', 'lastname', 'email', 'birthday', 'username', 'password', 'created', 'modified', 'role_id');
+    }
+}
+</textarea>

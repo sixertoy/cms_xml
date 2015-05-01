@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Pure" default="clear_install" basedir="../">
+
+	<property file="cli/build.properties" />
+
+	<description>Pure Ant Utilities</description>
+
+	<mkdir dir="cli/debug" />
+    
+    <target name="clear_entities" description="Clean up entities directory">
+        <exec executable="${local.php_exec}" output="cli/debug/ant.clear_entities.txt">
+            <arg value="${project.basedir}/cli/scripts/clear_entities.php" />
+        </exec>
+    </target>
+
+    <target name="clear_database" description="Clean up database entities">
+        <exec executable="${local.php_exec}" output="cli/debug/ant.clear_database.txt">
+            <arg value="${project.basedir}/cli/scripts/clear_database.php" />
+        </exec>
+    </target>
+
+    <target name="clear_install" description="Clean up install dependencies" depends="clear_database,clear_entities">
+        <exec executable="${local.php_exec}" output="cli/debug/ant.clear_install.txt">
+            <arg value="${project.basedir}/cli/scripts/clear_install.php" />
+        </exec>
+    </target>
+
+	<target name="clear_cache" description="Clean up cache directory">
+		<exec executable="${local.php_exec}" output="cli/debug/ant.clear_cache.txt">
+			<arg value="${project.basedir}/cli/scripts/clear_cache.php" />
+		</exec>
+	</target>
+
+    <target name="clear_logs" description="Clean up logs directory">
+        <exec executable="${local.php_exec}" output="cli/debug/ant.clear_logs.txt">
+            <arg value="${project.basedir}/cli/scripts/clear_logs.php" />
+        </exec>
+    </target>
+
+    <target name="generate_schemas" description="Genere les schemas de BDD Doctrine a partir d'un fichier .mwb" depends="clear_database,clear_entities">
+        <exec executable="${local.php_exec}" output="cli/debug/ant.generate_schemas.html">
+            <arg value="${project.basedir}/cli/scripts/generate_schemas.php" />
+        </exec>
+        <exec executable="${local.dev_browser}" spawn="true">
+            <arg value="${project.local_url}cli/debug/ant.generate_schemas.html" />
+        </exec>
+    </target>
+
+    <target name="testunits" description="Generate Unit Tests">
+        <exec executable="${local.dev_browser}" spawn="true">
+            <arg value="${project.url}/tests/" />
+        </exec>
+    </target>
+
+	<!--
+    <target name="quick_install" description="Installation des entites en BDD">
+        <exec executable="${local.php_exec}" output="cli/debug/ant.quick_install.txt">
+            <arg value="${project.basedir}/cli/scripts/quick_install.php" />
+        </exec>
+    </target>
+    -->
+
+</project>

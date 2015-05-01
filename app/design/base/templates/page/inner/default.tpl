@@ -1,0 +1,1 @@
+Default inner template

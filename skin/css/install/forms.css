@@ -1,0 +1,116 @@
+
+label em{ font-weight:bold; color:#FB1006; }
+
+.uneditable-input{ cursor: inherit; }
+
+:invalid, :valid{ box-shadow:0 0 0 #FFF; }
+
+:invalid + em:after{
+	margin-left: 5px;
+	content: url( ../../img/backend/login/error_11x11.png );
+}
+
+:valid + em:after{
+	margin-left: 5px;
+	content: url( ../../img/backend/login/check_12x10.png );
+}
+
+/*
+label i{ font-size:10px; }
+label { color:#666;font-size:11px;line-height: 1.8em; }
+
+input[type="checkbox"]{
+	margin:5px;
+	width:20px;
+	vertical-align:middle;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select{
+	border:0;
+	padding: 7px;
+	font-size: 11px;
+	margin-bottom:7px;
+	background: transparent;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+	height:18px;
+	width: 250px;	
+}
+select{ width:260px; }
+
+.wysiwyg{ float:left;background-color: #666; }
+.wysiwyg, .wysiwyg iframe{ min-width:435px !important; }
+
+textarea{
+	color:#FFF;
+	padding:7px;
+	margin-top:10px;
+	background:#666;
+	border:1px solid #000;
+}
+
+a.button,
+input[type="submit"],
+input[type="button"]{
+	color:#FFF;
+	width: 125px;
+	height: 37px;
+	line-height: 37px;
+}
+
+a.cancel-button,
+input.cancel-button{
+	color:#6F6F6F;
+	border: 1px solid #DDDDDD;
+	background: linear-gradient( #E7E7E7, #DDDDDD );
+	background: -o-linear-gradient( #E7E7E7, #DDDDDD );
+	background: -moz-linear-gradient( #E7E7E7, #DDDDDD );
+	background: -webkit-gradient( linear, left top, left bottom, from( #E7E7E7 ), to( #DDDDDD ) );
+	filter: progid:DXImageTransform.Microsoft.Gradient( StartColorStr='#E7E7E7', EndColorStr='#DDDDDD', GradientType=0 );
+}
+
+a.submit-button,
+input.submit-button{
+	border: 1px solid #7FB317;
+	background: linear-gradient( #ACE539, #7FB317 );
+	background: -o-linear-gradient( #ACE539, #7FB317 );
+	background: -moz-linear-gradient( #ACE539, #7FB317 );
+	background: -webkit-gradient( linear, left top, left bottom, from( #ACE539 ), to( #7FB317 ) );
+	filter: progid:DXImageTransform.Microsoft.Gradient( StartColorStr='#ACE539', EndColorStr='#7FB317', GradientType=0 );
+}
+
+button, select,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	padding: 5px;
+	border: 1px solid #AAAAAA;
+	border-radius: 3px 3px 3px 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+	border: 1px solid #0090FF;
+}
+
+fieldset
+{
+	padding:5px;
+	border:1px solid #000;
+	border: 1px solid #AAAAAA;
+}
+
+legend{
+	color:#AAA;
+	padding:5px;
+	font-size:10px;
+	margin-left:10px;
+}
+*/

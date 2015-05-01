@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout >
+	<default controller="login">
+		<block id="root" template="page/2columns-right" debuggable="false">
+			<block id="head" type="pure_core\head" template="page/html/head" debuggable="false">
+				<call method="title"><value>Backend</value></call>
+				<call method="addStylesheet">
+					<provider type="array">
+						<value>clearfix.css</value>
+						<value>xdebug.css</value>
+						<value>bootstrap.min.css</value>
+					</provider>
+				</call>
+				<call method="addStylesheet"><value>styles.css</value></call>
+				<call method="addScript"><value>jquery-1.8.3.min.js</value></call>
+			</block>
+			<block id="beforebody" type="pure_core\beforebody" template="page/html/beforebody" />
+			<block id="menubar" template="page/html/menubar" type="pure_backend\menubar"  />
+			<block id="breadcrumbs" type="pure_core\breadcrumbs" template="page/html/breadcrumbs" />
+			<!-- sidebar -->
+			<block id="sidebar" template="false">
+				<block id="explorer" template="page/html/explorer" type="pure_page\explorer" />
+				<block id="logout" template="page/html/admin_card" type="pure_user\admin" />
+			</block>
+			<!-- sidebar -->
+			<block id="content" template="false">
+				<block id="notifications" template="page/html/notifications"/>
+				<block id="toolbar" template="false" >
+					<block id="actions" template="page/buttons/addbutton" />
+				</block>
+				<block id="inner" template="page/content/column1" />
+			</block>
+			<block id="footer" template="page/html/footer" type="pure_backend\footer" />
+			<block id="afterbody" type="pure_core\afterbody" template="page/html/afterbody" >
+				<call method="addScript">
+					<provider type="array">
+						<value>bootstrap.min.js</value>
+						<value>jquery.generic_fix.js</value>
+					</provider>
+				</call>
+			</block>
+			<block id="debugger" type="pure_core\debugger" template="page/html/debugger" debuggable="false"/>
+		</block>
+	</default>
+	<!--
+	Extends
+	<view name="backend_add" >
+	<update id="root">
+	<call method="setBodyClass"><value>entities-add-page</value></call>
+	<update id="content">
+	<update id="toolbar" >
+	<block id="actions" template="page/form/toolbar" />
+	</update>
+	<update id="inner" template="page/content/columns2_left" >
+	<block id="left"  template="page/html/form" />
+	<block id="right"  template="page/content/datagrid" type="pure_core\components_datagrid" />
+	<block id="toolbar-bottom" template="false" >
+	<block id="actions-bottom" template="page/form/toolbar" />
+	</block>
+	</update>
+	</update>
+	</update>
+	</view>
+	-->
+</layout>

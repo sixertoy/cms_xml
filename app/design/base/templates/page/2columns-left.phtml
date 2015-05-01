@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<?php echo $this->getChildHtml( "head" ); ?>
+</head>
+<body class="<?php echo $this->getBodyClass(); ?>">
+    <?php echo $this->getBeforeBodyChild(); ?>
+	<div id="page">
+		<div id="wrapper" class="container_16">
+			<div class="header">
+				<?php echo $this->getChildHtml( "header" ); ?>
+			</div>
+            <div class="navigation">
+				<?php echo $this->getChildHtml( "inline" ); ?>
+            </div>
+			<div class="content col2-set">
+				<?php echo $this->getChildHtml( "content" ); ?>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<?php echo $this->getChildHtml( "footer" ); ?>
+	</div>
+	<?php echo $this->getAfterBodyChild(); ?>
+    <?php echo $this->getDebugger(); ?>
+</body>
+</html>

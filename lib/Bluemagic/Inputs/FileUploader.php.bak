@@ -1,0 +1,57 @@
+<?php
+/**
+ * 
+ * @author ROSE
+ *
+ * http://www.webcssdesign.com/ajax/jquery-plugins-240-tutoriels-a-decouvrir/
+ */
+class FileUploader extends AbstractInput
+{
+	private $_link;
+	private $_extensions;
+	/**
+	 * 
+	 * @param $pId
+	 * @return unknown_type
+	 */
+	function __construct( $pId )
+	{
+		parent::__construct( $pId, AbstractForm::FILE_TYPE );
+		$this->_link = "";
+		$this->_extensions = array();
+	}
+	/**
+	 * Retourne le contenu de l'input
+	 * @return string
+	 */
+	/*
+	public function getBody()
+	{
+		$body = "";
+		$body .= '<label class="form-label" for="'.$this->getId().'">'.$this->getLabel().''.( ( $this->isRequired() ) ? '<em>*</em>' : '' ).'</label>';
+		$body .= '<span class="form-input form-file '.( ( $this->isRequired() ) ? 'required' : '' ).'">';
+			$body .= '<input border="0" class="form-fileinput '.$this->getClasses().'" id="file_upload" type="'.$this->getType().'" name="file_upload"></input>';
+		$body .= '</span>';
+		$body .= '<a href="javascript:$(\'#file_upload\').uploadifyUpload();">envoyer</a>';
+		$body .= FileuploaderDecorator::DECORATION;
+		$body = $this->_writeDecorators( $body, $this->getId() );
+		return $body;		
+	}
+	*/
+	/**
+	 * Affecte le service AJAX au formulaire
+	 * @return String
+	 */
+	/*
+	public function setLink( $pLink ){ $this->_link = $pLink; }
+	*/
+	/**
+	 * 
+	 * @param string $pExtension
+	 * @return unknown_type
+	 */
+	/*
+	public function addExtension( $pExtension ){ array_push( $pExtension, $this->_extensions ); }
+	public function addExtensions( $pExtensions ){ $this->_extensions = array_merge( $pExtensions, $this->_extensions ); }
+	*/
+}

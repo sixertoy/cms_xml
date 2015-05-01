@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<default package="pure_install" action="welcome">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="steps">
+					<provider type="array">
+						<value key="welcome" >ere</value>
+						<value key="config" >ere</value>
+						<value key="database" >ere</value>
+						<value key="admin" >ere</value>
+						<value key="site" >ere</value>
+						<value key="resume" >ere</value>
+						<value key="complete" >ere</value>
+					</provider>
+				</call>
+			</update>
+			<update id="sidebar" template="page/html/sidebar">
+				<remove id="infos"/>
+			</update>
+		</update>
+	</default>
+
+	<!-- View_Controller_Action -->
+	<view name="index_welcome">
+		<update id="root">
+			<call method="setBodyClass">
+				<value>masthead</value>
+			</call>
+			<update id="breadcrumbs">
+				<call method="currentStep">
+					<value>welcome</value>
+				</call>
+				<call method="nextStep">
+					<value>config</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Bienvenue]]></value>
+				</call>
+			</update>
+			<update id="content" type="pure_core\content" template="page/content/welcome"/>
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_config">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>welcome</value>
+				</call>
+				<call method="currentStep">
+					<value>config</value>
+				</call>
+				<call method="nextStep">
+					<value>authentificate</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Test configuration serveur]]></value>
+				</call>
+			</update>
+			<update id="content" template="page/content/config"/>
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_authentificate">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>config</value>
+				</call>
+				<call method="currentStep">
+					<value>config</value>
+				</call>
+				<call method="nextStep">
+					<value>database</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Saisissez votre clé de sécurité]]></value>
+				</call>
+			</update>
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_database">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>config</value>
+				</call>
+				<call method="currentStep">
+					<value>database</value>
+				</call>
+				<call method="nextStep">
+					<value>admin</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Installation de la base de données]]></value>
+				</call>
+			</update>
+
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_admin">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>database</value>
+				</call>
+				<call method="currentStep">
+					<value>admin</value>
+				</call>
+				<call method="nextStep">
+					<value>welcome</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Informations administrateur]]></value>
+				</call>
+			</update>
+
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_site">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>admin</value>
+				</call>
+				<call method="currentStep">
+					<value>site</value>
+				</call>
+				<call method="nextStep">
+					<value>resume</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Informations du site]]></value>
+				</call>
+			</update>
+
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_resume">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>site</value>
+				</call>
+				<call method="currentStep">
+					<value>resume</value>
+				</call>
+				<call method="nextStep">
+					<value>complete</value>
+				</call>
+			</update>
+			<update id="content" template="page/content/resume"/>
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_install">
+		<update id="root" template="page/1column">
+			<remove id="breadcrumbs" />
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Pr&eacute;paration syst&egrave;me...]]></value>
+				</call>
+			</update>
+			<update id="content" template="page/content/install" type="pure_install\installAsync"/>
+			<remove id="sidebar" />
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_complete">
+		<update id="root">
+			<update id="breadcrumbs">
+				<call method="previousStep">
+					<value>resume</value>
+				</call>
+				<call method="currentStep">
+					<value>complete</value>
+				</call>
+				<call method="nextStep">
+					<value>start</value>
+				</call>
+			</update>
+			<update id="title">
+				<call method="content">
+					<value><![CDATA[Installation termin&eacute;e]]></value>
+				</call>
+			</update>
+			<update id="content" template="page/content/complete"/>
+		</update>
+	</view>
+
+	<!-- View_Controller_Action -->
+	<view name="index_start">
+		<update id="root" template="page/1column">
+			<remove id="breadcrumbs" />
+			<remove id="title" />
+			<update id="content" template="page/content/start" />
+			<remove id="sidebar" />
+		</update>
+	</view>
+
+</layout>

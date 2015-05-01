@@ -1,0 +1,11 @@
+<?php $link = $this->getHelper()->getProxy( "RequestProxy" )->getCMSLink(); ?>
+<div class="hero-unit">
+	<h1>Hello World!</h1>
+	<p>Vous avez d&eacute;sormais acc&eacute;s &agrave; votre nouveau gestionnaire CMS</p>
+	<p>
+		<a
+			href="<?php echo $link->get(); ?>"
+			class="btn btn-primary btn-large"
+		>Acc&eacute;der &agrave; l'administration de votre site</a>
+	</p>
+</div>

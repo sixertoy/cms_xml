@@ -1,0 +1,71 @@
+<?php
+/**
+ * http://jqueryui.com/demos/datepicker/#default
+ * 
+ * @author ROSE
+ *
+ */
+class DatePicker extends AbstractInput
+{
+	function __construct( $pId ){ parent::__construct( $pId ); }
+	/**
+	 * Retourne le contenu de l'input
+	 * @return string
+	 */
+	public function getBody()
+	{
+		$day = DateUtils::getCurrentDay();
+		$days =array();
+		for( $i = 1; $i < 32; $i++ ) array_push( $days, $i );		
+		$month = DateUtils::getCurrentMonth();
+		$months = array();
+		for( $i = 1; $i < 13; $i++ ) array_push( $months, $i );		
+		$year = DateUtils::getCurrentYear();
+		$years = array();
+		for( $i = 7; $i < 21; $i++ ) array_push( $years, $i );		
+		$body = '<label class="form-label" for="'.$this->getId().'">'.$this->getLabel().'</label>';		
+		$body .= '<span class="form-datepicker form-combobox form-input '.( ( $this->isRequired() ) ? 'required' : '' ).' id="'.$this->getId().'">';
+			//
+			$body .= '<select id="'.$this->getId().'-day" class="form-datepicker-day-input '.$this->getClasses().'" size="1" name="'.$this->getId().'-day">';
+			foreach( $days as $value )
+			{
+				$body .= '<option value="'.$value.'"';
+				if( $value == $day ) $body .= ' selected';
+				$body .= '>';
+				$body .= $value;
+				$body .= '</option>';
+			}			
+			$body .= '</select>';
+			//	
+			$body .= '<select id="'.$this->getId().'-month" class="form-datepicker-month-input '.$this->getClasses().'" size="1" name="'.$this->getId().'-month">';
+			foreach( $months as $value )
+			{
+				$body .= '<option value="'.$value.'"';
+				if( $value == $month ) $body .= ' selected';
+				$body .= '>';
+				$body .= DateUtils::$SHORT_MONTHS[ ( $value - 1 ) ];
+				$body .= '</option>';
+			}			
+			$body .= '</select>';
+			//	
+			$body .= '<select id="'.$this->getId().'-year" class="form-datepicker-year-input '.$this->getClasses().'" size="1" name="'.$this->getId().'-year">';
+			foreach( $years as $value )
+			{
+				$body .= '<option value="'.$value.'"';
+				if( $value == $year ) $body .= ' selected';
+				$body .= '>';
+				if( $value < 10 )  $value = '0'.$value;
+				$body .= '20'.$value;
+				$body .= '</option>';
+			}			
+			$body .= '</select>';
+		$body .= '</span>';
+		
+		$body .= '<span class="form-error">';
+			$body .= '<span class="error-left">&nbsp;</span>';
+			$body .= '<span class="error-right">this field is required</span>';
+		$body .= '</span>';
+		
+		return $body;		
+	}
+}

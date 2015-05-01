@@ -1,0 +1,96 @@
+<?php
+global $dev_core_debug;
+$types = $this->getTypes();
+$messages = $this->getMessages();
+?>
+<div id="debugger" class="debugger">
+    <div class="debug-content">
+        <ul class="clearfix">
+            <?php foreach( $messages as $index=>$mess ): ?>
+                <?php $count = count( $mess ); ?>
+                <?php $type = $types[ $index ]; ?>
+                <?php $label = ucfirst( $type )."s (".$count.")"; ?>
+                   <li class="debug-<?php echo $type; ?>s">
+                        <?php if( $count > 0 ): ?>
+                        <a href="#debug-<?php echo $type; ?>s"><?php echo $label; ?></a>
+                        <?php else: ?>
+                        <?php echo $label; ?>
+                        <?php endif; ?>
+                    </li>
+            <?php endforeach; ?>
+		    <li>
+                <label for="path_debug">
+                    <input id="path_debug" type="checkbox" />&nbsp;Path debug
+                </label>
+            </li>
+    		<li>
+    			<label>
+    				<span><?php echo sprintf( "Memory usage: %0.3f MB", ( memory_get_peak_usage( true ) / 1024 / 1024 ) ); ?></span>
+    			</label>
+    		</li>
+    		<?php if( $dev_core_debug ) : ?>
+    		<li>
+    			<label>
+    				<span>Application load time:&nbsp;<b></b>&nbsp;second(s)</span>
+    			</label>
+    		</li>
+    		<?php endif; ?>
+        </ul>
+        <?php foreach( $messages as $index=>$mess ): ?>
+            <?php $type = $types[ $index ]; ?>
+            <div id="debug-<?php echo $type; ?>s" class="debug-msg-box">
+                <?php foreach( $mess as $m ): ?>
+                   <?php echo $m->getMessage( "html" ); ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery( document ).ready( function()
+    {
+        var active = null;
+        var opened = null;
+
+        // Si aucune exceptions
+        // La box de debug ne sera pas affichee
+        
+        jQuery( "#debugger .debug-content li input" ).change( function()
+        {
+            jQuery( ".template-path-debug" ).toggleClass( "active" );
+            return false;
+        });
+        
+        jQuery( "#debugger .debug-content li" ).each( function()
+        {
+            var link = $( this ).children( "a" );
+            var idElement = link.attr( "href" );
+            link.click( function()
+            {
+            	jQuery( opened ).removeClass( "active" );
+            	jQuery( active ).parent( "li" ).toggleClass( "active" );
+                if( active != this )
+                 {
+                	active = this;
+                    opened = $( idElement ).addClass( "active" );
+                    jQuery( active ).parent( "li" ).toggleClass( "active" );
+                }
+                else{ active = null;opened = null; }
+                return false;
+            });
+        });
+    });
+    //]]>
+</script>
+<?php if( $dev_core_debug ) : ?>
+<script type="text/javascript">
+	 //<![CDATA[
+    jQuery( document ).ready( function()
+	{
+ 		var content = jQuery( "#kernel_load_time" ).text();
+ 		jQuery( "#debugger ul li.last span b" ).text( content );
+	});
+	 //]]>
+</script>
+<?php endif; ?>

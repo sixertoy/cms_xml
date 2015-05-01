@@ -1,0 +1,111 @@
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => SHOW FULL TABLES WHERE Table_type = 'BASE TABLE'
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_articles (id BIGINT AUTO_INCREMENT NOT NULL, post_id INT DEFAULT NULL, title VARCHAR(255) NOT NULL, content LONGTEXT NOT NULL, short_content VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_100DD61C4B89032C (post_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_categories (id INT AUTO_INCREMENT NOT NULL, parent_id INT DEFAULT NULL, title VARCHAR(255) NOT NULL, content LONGTEXT NOT NULL, INDEX IDX_4FCE2291727ACA70 (parent_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_medias (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_options (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, value LONGTEXT NOT NULL, autoload TINYINT(1) NOT NULL, created DATETIME NOT NULL, modified DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_posts (id INT AUTO_INCREMENT NOT NULL, publication_id BIGINT DEFAULT NULL, type_id INT DEFAULT NULL, medias_id INT DEFAULT NULL, INDEX IDX_122783E38B217A7 (publication_id), INDEX IDX_122783EC54C8C93 (type_id), INDEX IDX_122783EC7F4A74B (medias_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_publications (id BIGINT AUTO_INCREMENT NOT NULL, type_id INT DEFAULT NULL, route VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, status INT NOT NULL, position INT NOT NULL, created DATETIME NOT NULL, modified DATETIME NOT NULL, INDEX IDX_BDD9B07CC54C8C93 (type_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_types (id INT AUTO_INCREMENT NOT NULL, `label` VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, created DATETIME NOT NULL, modified DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => CREATE TABLE pr_users (id INT AUTO_INCREMENT NOT NULL, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, birthday VARCHAR(255) NOT NULL, created DATETIME NOT NULL, modified DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => ALTER TABLE pr_articles ADD CONSTRAINT FK_100DD61C4B89032C FOREIGN KEY (post_id) REFERENCES pr_posts (id)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => ALTER TABLE pr_categories ADD CONSTRAINT FK_4FCE2291727ACA70 FOREIGN KEY (parent_id) REFERENCES pr_categories (id)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => ALTER TABLE pr_posts ADD CONSTRAINT FK_122783E38B217A7 FOREIGN KEY (publication_id) REFERENCES pr_publications (id)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => ALTER TABLE pr_posts ADD CONSTRAINT FK_122783EC54C8C93 FOREIGN KEY (type_id) REFERENCES pr_types (id)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => ALTER TABLE pr_posts ADD CONSTRAINT FK_122783EC7F4A74B FOREIGN KEY (medias_id) REFERENCES pr_medias (id)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => ALTER TABLE pr_publications ADD CONSTRAINT FK_BDD9B07CC54C8C93 FOREIGN KEY (type_id) REFERENCES pr_types (id)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "START TRANSACTION"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_types (label, name, created, modified) VALUES (?, ?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / Category / category
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "COMMIT"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "START TRANSACTION"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_categories (title, content, parent_id) VALUES (?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / Dashboard / Lorem ipsum dolo sit amet
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "COMMIT"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "START TRANSACTION"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_options (name, value, autoload, created, modified) VALUES (?, ?, ?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / domain / localhost
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_options (name, value, autoload, created, modified) VALUES (?, ?, ?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / contact_email / matthieu.lassalvy@gmail.com
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_options (name, value, autoload, created, modified) VALUES (?, ?, ?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / title / Titre
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "COMMIT"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "START TRANSACTION"
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_users (username, password, firstname, lastname, email, birthday, created, modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / SuperAdmin / 9dd429616fae86496739423f93f9700d / Matthieu / Lassalvy / matthieu.lassalvy@gmail.com / 
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => INSERT INTO pr_users (username, password, firstname, lastname, email, birthday, created, modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	40 =>  / admin / fc5e038d38a57032085441e7fe7010b0 / Matthieu / Lassalvy / matthieu.lassalvy@gmail.com / 
+
+[3] :: 2013-Jan-11 13:43	D:\www\pure\www\lib\Pure\Loggers\DoctrineLogger.php
+	31 => "COMMIT"
+

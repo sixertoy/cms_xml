@@ -1,0 +1,138 @@
+<?php
+
+namespace Pure\Models;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pure\Models\Page
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="pr_pages", indexes={@ORM\Index(name="fk_pages_posts_idx", columns={"post_id"})})
+ */
+class Page
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $page_id;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $public;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $position;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Post", cascade={"persist", "merge", "remove", "detach", "all"})
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="post_id", onDelete="CASCADE", nullable=false)
+     */
+    protected $post;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * Set the value of page_id.
+     *
+     * @param integer $page_id
+     * @return \Pure\Models\Page
+     */
+    public function setPageId($page_id)
+    {
+        $this->page_id = $page_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of page_id.
+     *
+     * @return integer
+     */
+    public function getPageId()
+    {
+        return $this->page_id;
+    }
+
+    /**
+     * Set the value of public.
+     *
+     * @param boolean $public
+     * @return \Pure\Models\Page
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of public.
+     *
+     * @return boolean
+     */
+    public function getPublic()
+    {
+        return $this->public;
+    }
+
+    /**
+     * Set the value of position.
+     *
+     * @param integer $position
+     * @return \Pure\Models\Page
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of position.
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set Post entity (one to one).
+     *
+     * @param \Pure\Models\Post $post
+     * @return \Pure\Models\Page
+     */
+    public function setPost(Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get Post entity (one to one).
+     *
+     * @return \Pure\Models\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function __sleep()
+    {
+        return array('page_id', 'post_id', 'public', 'position');
+    }
+}

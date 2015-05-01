@@ -1,0 +1,39 @@
+<?php
+$helper = $this->getHelper( "Bluemagic\Article\Articles" );
+$collection = $helper->getCollection();
+?>
+<div class="navbar top">
+</div>
+<div class="articles-list">
+	<?php foreach( $collection->items() as $article ) : ?>
+    <div class="article">
+        <div class="article-body">
+            <div class="article-title">
+                <h2>
+                    <?php $args = array( "id"=>$article->getArticleId() ); ?>
+                    <?php $link = $this->getLink( "article", $args ); ?>
+                    <a href="<?php echo htmlentities( $link ); ?>"><?php echo $article->getTitle(); ?></a>
+                </h2>
+                <p>
+                    <?php /* Par <a href="#"><?php echo $article->getAuthor(); ?></a>, */ ?>
+                	<?php echo $article->getDate(); ?>
+                    <span>
+                	<?php /* $splitter = ""; */ ?>
+                	<?php /* foreach( $article->getTags() as $tag ) : */ ?>
+                    	<?php /*echo $splitter.$tag->getLabel();*/ ?>
+                    	<?php /*$splitter = ", ";*/ ?>
+                	<?php /*endforeach;*/ ?>
+                    </span>
+                    <span></span>
+                </p>
+            </div>
+            <div class="article-content">
+				<?php echo $article->getShortContent(); ?>
+            </div>        
+        </div>
+        <div class="article-image"></div>
+        </div>
+	<?php endforeach; ?>
+</div>
+<div class="navbar bottom">
+</div>

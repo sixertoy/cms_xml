@@ -1,0 +1,138 @@
+
+label {
+	color:#666;
+	font-size:11px;
+	line-height: 1.8em;
+}
+
+label i{
+	font-size:10px;
+}
+
+input[type="checkbox"]{
+	margin:5px;
+	width:20px;
+	vertical-align:middle;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select{
+	border:0;
+	padding: 7px;
+	font-size: 11px;
+	margin-bottom:7px;
+	background: transparent;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+	height:18px;
+	width: 250px;	
+}
+
+select{
+	width:260px;
+}
+
+.wysiwyg{
+	float:left;
+	background-color: #666;
+}
+.wysiwyg, .wysiwyg iframe{ min-width:435px !important; }
+
+textarea{
+	color:#FFF;
+	padding:7px;
+	margin-top:10px;
+	background:#666;
+	border:1px solid #000;
+}
+
+input[type="submit"],
+input[type="button"]{
+	color:#FFF;
+	width: 125px;
+	height: 37px;
+	line-height: 37px;
+}
+
+input.cancel-button{
+	color:#6F6F6F;
+	border: 1px solid #DDDDDD;
+	background: linear-gradient( #E7E7E7, #DDDDDD );
+	background: -o-linear-gradient( #E7E7E7, #DDDDDD );
+	background: -moz-linear-gradient( #E7E7E7, #DDDDDD );
+	background: -webkit-linear-gradient( #E7E7E7, #DDDDDD );	
+}
+
+input.submit-button{
+	border: 1px solid #7FB317;
+	background: linear-gradient( #ACE539, #7FB317 );
+	background: -o-linear-gradient( #ACE539, #7FB317 );
+	background: -moz-linear-gradient( #ACE539, #7FB317 );
+	background: -webkit-linear-gradient( #ACE539, #7FB317 );	
+}
+
+button, select,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	padding: 5px;
+	border: 1px solid #AAAAAA;
+	border-radius: 3px 3px 3px 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+	border: 1px solid #0090FF;
+}
+
+:invalid, :valid{ box-shadow:0 0 0 #FFF; }
+
+:invalid + em:after{
+	margin-left: 5px;
+	content: url( ../../img/login/x_11x11.png );
+}
+
+:valid + em:after{
+	margin-left: 5px;
+	content: url( ../../img/login/check_12x10.png );
+}
+
+form dl{
+	clear:both;
+	margin-bottom:10px;
+}
+
+form dt{
+	float:left;
+	width:150px;	
+	margin-right: 7px;
+	text-align: right;
+}
+
+form dd{
+	/*right:0px;*/
+	/*width:auto;*/
+	/*float: left;*/
+	min-width:505px;
+	margin-bottom:12px;
+}
+
+fieldset
+{
+	padding:5px;
+	border:1px solid #000;
+	border: 1px solid #AAAAAA;
+}
+
+legend{
+	color:#AAA;
+	padding:5px;
+	font-size:10px;
+	margin-left:10px;
+}

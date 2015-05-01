@@ -1,0 +1,51 @@
+<?php $helper = $this->getHelper(); ?>
+<div>
+	<h3>Informations BDD</h3>
+	<?php $infos = $helper->getData( "DatabaseInfos" ); ?>
+    <dl class="dl-horizontal clearfix">
+        <!-- username -->
+        <dt>Utilisateur BDD :</dt>
+        <dd><pre><?php echo $infos[ "bdduser" ]; ?></pre></dd>
+        <!-- password -->
+        <dt>Mot de passe :</dt>
+        <dd><pre><?php echo $infos[ "bddpassword" ]; ?></pre></dd>
+        <!-- email -->
+        <dt>Nom de la BDD :</dt>
+        <dd><pre><?php echo $infos[ "bddname" ]; ?></pre></dd>
+        <!-- firstname -->
+        <dt>Serveur :</dt>
+        <dd><pre><?php echo $infos[ "bddhost" ]; ?></pre></dd>
+    </dl>
+	<h3>Informations Admin</h3>
+	<?php $infos = $helper->getData( "SuperadminInfos" ); ?>
+    <dl class="dl-horizontal clearfix">
+        <!-- username -->
+        <dt>Nom d'utilisateur :</dt>
+        <dd><pre><?php echo $infos[ "username" ]; ?></pre></dd>
+        <!-- password -->
+        <dt>Mot de passe :</dt>
+        <dd><pre><?php echo md5( $infos[ "password" ] ); ?></pre></dd>
+        <!-- email -->
+        <dt>eMail de contact :</dt>
+        <dd><pre><?php echo $infos[ "email" ]; ?></pre></dd>
+        <!-- firstname -->
+        <dt>Pr&eacute;nom :</dt>
+        <dd><pre><?php echo $infos[ "firstname" ]; ?></pre></dd>
+        <!-- lastname -->
+        <dt>Nom :</dt>
+        <dd><pre><?php echo $infos[ "lastname" ]; ?></pre></dd>
+    </dl>
+	<h3>Informations Site</h3>
+	<?php $infos = $helper->getData( "SiteInfos" ); ?>
+    <dl class="dl-horizontal clearfix">
+        <!-- titre -->
+        <dt>Titre :</dt>
+        <dd><pre><?php echo $infos[ "title" ]; ?></pre></dd>
+        <!-- domaine -->
+        <dt>Domaine :</dt>
+        <dd><pre><?php echo $infos[ "domain" ]; ?></pre></dd>
+        <!-- email -->
+        <dt>eMail de contact :</dt>
+        <dd><pre><?php echo $infos[ "email" ]; ?></pre></dd>
+    </dl>
+</div>

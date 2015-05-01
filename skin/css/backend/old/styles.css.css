@@ -1,0 +1,229 @@
+/*******************************************************************************************/
+/* Template */
+/*******************************************************************************************/
+
+body > #page{ height:auto;min-height: 100%; }
+#page{ height:auto;min-height: 100%; }
+#wrapper{ overflow: auto; }
+
+.header{
+	padding: 15px 15px;
+	background: #3D3D3D;
+}
+
+.left{ float:left;width:auto; }
+.right{ width:auto;float:right;text-align:right; }
+
+.navigation{
+	height: 40px;
+	font-size: 13px;
+	margin-bottom:20px;
+	background: linear-gradient( #636363, #414141 );
+	background: -o-linear-gradient( #636363, #414141 ); /*opera*/
+	background: -moz-linear-gradient( #636363, #414141 ); /*firefox*/
+	background: -webkit-linear-gradient( #636363, #414141 ); /*safari*/
+}
+
+.layout{
+	position:relative;
+}
+
+.footer {
+	width: 92%;
+	clear: both;
+	min-width:980px;
+	margin-left: 4%;
+	padding: 0 1.5%;
+	margin-right: 4%;
+	position: relative;
+	margin-top: 100px;
+}
+
+.left{ width:auto;float:left; }
+.right{ width:auto;float:right; }
+
+/*******************************************************************************************/
+/* Header */
+/*******************************************************************************************/
+
+#user_infos{
+	color:#616161;
+}
+
+/*******************************************************************************************/
+/* Navigation */
+/*******************************************************************************************/
+
+.navigation ul,
+.navigation ol{
+	list-style: none;
+}
+
+.navigation ul li,
+.navigation ol li{
+	float: left;
+	line-height:40px;
+}
+
+.navigation ul li a,
+.navigation ol li a,
+.navigation ul li span,
+.navigation ol li span{
+	color: #FFF;
+	margin:0 10px;
+	padding:5px 10px;
+	border:1px solid transparent;
+}
+
+.navigation ul li a:hover,
+.navigation ol li a:hover,
+.navigation ul li span.active,
+.navigation ol li span.active{
+	color: #FFF;
+	text-decoration: none;
+	border:1px solid #616161;
+	background: linear-gradient( #414141, #2C2C2C );
+	background: -o-linear-gradient( #414141, #2C2C2C ); /*opera*/
+	background: -moz-linear-gradient( #414141, #2C2C2C ); /*firefox*/
+	background: -webkit-linear-gradient( #414141, #2C2C2C ); /*safari*/
+}
+
+.nav-divider{
+	width: 15px;
+	height: 40px;
+	background: url(../img/shared/nav/divider.jpg) no-repeat top left;
+}
+
+/*******************************************************************************************/
+/* Layout */
+/*******************************************************************************************/
+
+h1#heading_index{
+	background:#c9c9c9 url( ../img/48x48-headings_icons.png ) 0 0 no-repeat;	
+}
+
+h1#heading_insert{
+	background:#c9c9c9 url( ../img/48x48-headings_icons.png ) 0 -48px no-repeat;	
+}
+
+h1#heading_update{
+	background:#c9c9c9 url( ../img/48x48-headings_icons.png ) 0 -96px no-repeat;	
+}
+
+.content{}
+.sidebar{}
+
+.toolbar{
+	clear:both;
+	margin-top:20px;
+}
+
+.toolbar input, .toolbar input{	
+	width:auto;
+	float:right;
+	margin-right:10px;
+}
+
+/**************************************************************************************/
+/* Smarties */
+/**************************************************************************************/
+
+/*******************************************************************************************/
+/* Forms */
+/*******************************************************************************************/
+
+div.clonable{
+	clear:both;
+}
+
+div.clonable li{
+	float:left;
+	width:auto;
+	margin-right:10px;
+}
+
+div.clonable input{
+	width:107px;	
+}
+
+div.clonable select{
+	width:117px;
+}
+
+a.button,
+span.button
+{
+	color:#FFF;
+	width: 27px;
+	height: 27px;
+	font-size:14px;
+	line-height: 27px;
+	display:inline-block;	
+}
+
+a.button:hover{
+	text-decoration:none;
+}
+
+a.button,
+span.button,
+input[type="submit"],
+input[type="button"]{
+	cursor:pointer;
+	font-weight:bold;
+	text-align: center;
+	border: 1px solid transparent;
+	background: linear-gradient( #0090FF, #0561A7 );
+	background: -o-linear-gradient( #0090FF, #0561A7 );
+	background: -moz-linear-gradient( #0090FF, #0561A7 );
+	background: -webkit-linear-gradient( #0090FF, #0561A7 );
+}
+
+/*******************************************************************************************/
+/* Sidebar */
+/*******************************************************************************************/
+
+.box{
+	margin-bottom:20px;
+	border:1px solid #DDDDDD;
+}
+
+.box h6,
+.box h5{
+	color:#FFF;
+	padding:10px;
+	margin-bottom:0;
+	background: linear-gradient( #6A6A6A, #4E4E4E );
+	background: -o-linear-gradient( #6A6A6A, #4E4E4E ); /*opera*/
+	background: -moz-linear-gradient( #6A6A6A, #4E4E4E ); /*firefox*/
+	background: -webkit-linear-gradient( #6A6A6A, #4E4E4E ); /*safari*/
+}
+
+.box ol, .box ol li{
+	padding:5px;
+}
+
+.box ol li{
+}
+
+.box ol li a{
+	color:#6A6A6A;
+	font-weight:bold;
+}
+
+.box ol li a:hover{
+	color:#0090FF;
+	text-decoration:none;
+}
+
+/* Relative au theme */
+.colored h6{
+	background: linear-gradient( #0090FF, #0561A7 ); /* Darkblue @less.js */
+	background: -o-linear-gradient( #0090FF, #0561A7 ); /*opera*/
+	background: -moz-linear-gradient( #0090FF, #0561A7 ); /*firefox*/
+	background: -webkit-linear-gradient( #0090FF, #0561A7 ); /*safari*/	
+}
+
+/*******************************************************************************************/
+/* Footer */
+/*******************************************************************************************/

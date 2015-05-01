@@ -1,0 +1,33 @@
+body{ background: url( "../../img/shared/background.jpg" ) repeat-x scroll center top; }
+
+/*******************************************************************************************/
+/* 960gs */
+/*******************************************************************************************/
+
+.container_16{ min-width: 980px; }
+
+.container_16 .push_1{ left:1.5%; }
+.container_16 .pull_1{ left:-1.5%; }
+.container_16 .grid_1{ width: 1.5%; }
+.container_16 .prefix_1 { padding-left:1.5%; }
+.container_16 .suffix_1 { padding-right:1.5%; }
+
+.container_16 .grid_14{ width: 91%; }
+
+
+/*******************************************************************************************/
+/* Headings */
+/*******************************************************************************************/
+.content h2{
+	 height:48px;
+	 color:#8C8C8C;
+	 line-height:48px;
+	 padding-left:48px;
+}
+.user .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 -288px transparent; }
+.dashboard .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 0 transparent; }
+.owner .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 -240px transparent; }
+.media .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 -144px transparent; }
+.article .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 -96px transparent; }
+.category .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 -48px transparent; }
+.cache .content h2{ background:url( ../../img/48x48-headings_icons.png ) no-repeat 0 -192px transparent; }

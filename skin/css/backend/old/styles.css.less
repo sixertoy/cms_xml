@@ -1,0 +1,89 @@
+/**
+ * Less StyleSheet
+ *
+ * http://lesscss.org/
+ * @date		25 Avril 2011
+ * @version	less-1.0.41.min.js
+ * @author	Matthieu Lassalvy
+ */
+
+/***********************************************************************/
+/* Variables */
+/***********************************************************************/
+/*colors*/
+@darkGrey:#000;
+@lightGrey:#DDD;
+
+@darkGreen:#7FB317;
+@lightGreen:#ACE539;
+
+@darkblue:#0561A7;
+@lightblue:#0090FF;
+
+/*sizes*/
+@footerHeight:70px;
+/**/
+.rounded-corners( @radius: 5px ) {
+  border-radius: @radius;
+  -o-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.top-rounded-corners( @radius: 5px ) {
+  border-radius: @radius @radius 0 0;
+  -o-border-radius: @radius @radius 0 0;
+  -moz-border-radius: @radius @radius 0 0;
+  -webkit-border-radius: @radius @radius 0 0;
+}
+
+/*
+.black-gradient( @topcolor:#636363, @bottomcolor:#414141 ){
+	background: -webkit-gradient( linear, 0, 0, 0 bottom, @topcolor, @bottomcolor );
+	background: -moz-linear-gradient( 0% 100% 90deg, @topcolor, @bottomcolor );
+	background: -o-linear-gradient( @topcolor, @bottomcolor );
+	background: linear-gradient( @topcolor, @bottomcolor );
+	-pie-background: linear-gradient( @topcolor, @bottomcolor );
+}
+*/
+
+.text-shadow( @color:#FFF ){
+	text-shadow: 1px 1px 0 @color;
+	-o-text-shadow: 1px 1px 0 @color;
+	-moz-text-shadow: 1px 1px 0 @color;
+	-webkit-text-shadow: 1px 1px 0 @color;
+}
+
+/***********************************************************************/
+/* Styles */
+/***********************************************************************/
+
+h1{
+	.text-shadow;
+	.rounded-corners;
+}
+
+#main{
+	padding-bottom: @footerHeight;	
+}
+
+#footer {
+	height: @footerHeight;
+	line-height:@footerHeight;
+	margin-top:( @footerHeight * -1 );
+}
+
+.box h6,
+.box h5{
+	.top-rounded-corners;
+	.text-shadow( @darkGrey );
+}
+
+.box,
+select,
+.button,
+.wysiwyg,
+fieldset,
+input[type="button"], input[type="submit"],
+.navigation ol li span.active, .navigation ul li span.active,
+.navigation ul li a:hover, .navigation ol li a:hover{ .rounded-corners }

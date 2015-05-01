@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+    <!-- Package_Layout_Controller -->
+    <default package="pure_home" action="index"/>
+
+    <!-- View_Controller_Action -->
+    <home_index>
+        <update id="root">
+            <call method="setBodyClass">
+                <value>homepage</value>
+            </call>
+        </update>
+    </home_index>
+
+</layout>

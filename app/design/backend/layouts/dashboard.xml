@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    
+    <!-- Package_Layout_Controller -->
+    <default package="pure_backend" action="index"/>
+    
+    <!-- View_Controller_Action -->
+    <view name="dashboard_index">
+        <update id="root">
+            <call method="setBodyClass">
+                <value>dashboard</value>
+            </call>
+        </update>
+    </view>
+    
+</layout>

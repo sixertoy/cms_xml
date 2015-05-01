@@ -1,0 +1,56 @@
+#-------------------------------------------------------------------------------------------------------- PHP5 - 1&1
+#AddType x-mapp-php5 .php
+#AddHandler x-mapp-php5 .php
+
+#-------------------------------------------------------------------------------------------------------- PHP5 - OVH
+SetEnv PHP_VER 5
+SetEnv MAGIC_QUOTES 0
+SetEnv ZEND_OPTIMIZER 0
+SetEnv REGISTER_GLOBALS 0
+
+#-------------------------------------------------------------------------------------------------------- PHP FLAG
+## Disable automatic session start before autoload was initialized
+php_flag register_globals on
+php_flag session.auto_start off
+
+#-------------------------------------------------------------------------------------------------------- ACCESS
+## By default allow all access
+Order allow,deny
+Allow from all
+
+#-------------------------------------------------------------------------------------------------------- ENCODING
+## Prevent character encoding issues from server overrides
+## If you still have problems, use the second line instead
+#AddDefaultCharset UTF-8
+AddDefaultCharset Off
+
+#-------------------------------------------------------------------------------------------------------- ERRORS
+#ErrorDocument 404 /index.php?view=index&layout=error&action=notfound
+#ErrorDocument 400 /index.php?view=index&layout=error&action=restricted
+#ErrorDocument 500 /index.php?view=index&layout=error&action=notfound
+#ErrorDocument 401 /index.php?view=index&layout=error&action=notfound
+#ErrorDocument 403 /index.php?view=index&layout=error&action=notfound
+
+#-------------------------------------------------------------------------------------------------------- REWRITING
+# http://www.webrankinfo.com/dossiers/techniques/tutoriel-url-rewriting
+Options +FollowSymlinks
+RewriteEngine on
+
+## Default index file
+DirectoryIndex index.php
+
+## Always send 404 on missing files in these folders
+RewriteCond %{REQUEST_URI} !^/(media|skin|js)/
+
+## Never rewrite for existing files, directories and links
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#-------------------------------------------------------------------------------------------------------- OTHERS
+## Rewrite everything else to index.php
+#RewriteRule ^(.*)/(.*)/(.*)/$ index.php?view=$1&layout=$2&action=$3 [L]
+#RewriteRule ^(.*)/(.*)/$ index.php?view=$1&layout=$2 [L]
+#RewriteRule ^(.*)/$ index.php?view=$1 [L]
+#RewriteRule ^([^.]*)$ index.php [L]
+RewriteRule .* index.php [L]

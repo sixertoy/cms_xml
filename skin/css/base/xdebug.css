@@ -1,0 +1,145 @@
+/*******************************************************************************************/
+/* Path Debugger */
+/*******************************************************************************************/
+.template-path-debug.active:hover .inner
+{
+   border:1px solid #FF6500;
+}
+
+.template-path-debug .inner{ background:#C4C4C4; }
+
+.template-path-debug .inner .block-id-name,
+.template-path-debug .inner .template-path-name
+{
+	display:none;
+	visibility:hidden;
+	
+	color:#FFF;
+	font-size:10px;
+	padding:1px 3px;
+}
+
+.template-path-debug.active:hover .inner .block-id-name,
+.template-path-debug.active:hover .inner .template-path-name
+{
+	width:45%;
+	display:block;
+	visibility:visible;
+	margin-bottom:10px;
+}
+
+/****************************************************************************************************/
+/* Apache xDebug */
+/****************************************************************************************************/
+.debug,
+.xdebug-error{ font-size:10px; }
+
+/****************************************************************************************************/
+/* Debugger */
+/****************************************************************************************************/
+#debugger
+{
+	bottom:0;
+	width:100%;
+	padding:3px;
+	position:fixed;
+	overflow:hidden;
+	z-index:9999 !important;
+	background:rgba( 51, 51, 51, 0.75 ) !important;
+}
+
+#debugger .debug-content
+{
+	padding:0 !important;
+	font-size:10px !important;
+}
+
+#debugger .debug-content ul
+{
+	margin:0;
+	padding:0;
+	height:31px;
+	list-style:none;
+}
+#debugger .debug-content li
+{
+	float:left;
+	color:#666;
+	padding:5px 10px;
+	text-transform:uppercase;
+}
+
+#debugger .debug-content li a,
+#debugger .debug-content li label
+{
+	color:#FFF;
+	margin-bottom:0;
+	font-weight:bold;
+	font-size:10px !important;
+}
+#debugger .debug-content li.active a{ color:#000; }
+#debugger .debug-content li a:hover{ text-decoration:none; }
+
+#debugger .debug-content li input[type="checkbox"]{ margin-top:-2px; }
+
+#debugger .debug-content li.active
+{
+  border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+}
+#debugger .debug-content li.debug-sqls.active{ background:#0090FF; }
+#debugger .debug-content li.debug-debugs.active{ background:#DDD; }
+#debugger .debug-content li.debug-infos.active{ background:#ACE539; }
+#debugger .debug-content li.debug-warns.active{ background:#FF6500; }
+#debugger .debug-content li.debug-errors.active{ background:#FB1006; }
+#debugger .debug-content li.debug-requests.active{ background:#0090FF; }
+
+#debugger .debug-msg-box
+{
+	display: none;
+	visibility: hidden;
+}
+#debugger .debug-msg-box.active
+{
+	width:100%;
+	height:650px;
+	display: block;
+	overflow-y:auto;
+	overflow-x:none;
+	visibility: visible;
+}
+
+#debugger .debug-message{
+	color:#000;
+	padding:5px;
+	font-size:11px;
+	background:#CCC;
+	margin-bottom: 1px;
+	padding-bottom:15px;
+}
+#debugger .debug-message span
+{
+	margin-left:10px;
+}
+#debugger .debug-message i
+{
+	color:#FFF;
+	padding:5px;
+	font-size:10px;
+	font-weight:bold;
+	background:rgba( 0, 0, 0, 0.30 );
+}
+
+
+/****************************************************************************************************/
+/* Messages */
+/****************************************************************************************************/
+
+#debugger #debug-debugs .debug-message{ color:#696969 !important;background:#DDD !important; } /* Gris */
+#debugger #debug-infos .debug-message{ color:#000 !important;background:#ACE539 !important; } /* Vert */
+#debugger #debug-sqls .debug-message{ color:#000 !important;background:#0090FF !important; } /* Bleu */
+#debugger #debug-warns .debug-message{ color:#000 !important;background:#FF6500 !important; } /* Orange */
+#debugger #debug-errors .debug-message{ color:#000 !important;background:#FB1006 !important; } /* Rouge */
+#debugger #debug-requests .debug-message{ color:#000 !important;background:#0090FF !important; } /* Bleu */

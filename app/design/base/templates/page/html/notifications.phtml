@@ -1,0 +1,32 @@
+<?php
+$notes = $this->getHelper()->getNotifications();
+if( !empty( $notes ) ) :
+?>
+	<?php if( isset( $notes[ "success" ] ) ) : ?>
+	<div class="alert alert-success">
+		<ul>
+			<?php foreach( $notes[ "sucess" ] as $note ) : ?>
+			<li><?php echo $note; ?></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+	<?php endif; ?>
+	<?php if( isset( $notes[ "warning" ] ) ) : ?>
+	<div class="alert alert-block">
+		<ul>
+			<?php foreach( $notes[ "warning" ] as $note ) : ?>
+			<li><?php echo $note; ?></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+	<?php endif; ?>
+	<?php if( isset( $notes[ "error" ] ) ): ?>
+	<div class="alert alert-error">
+		<ul>
+			<?php foreach( $notes[ "error" ] as $note ) : ?>
+			<li><?php echo $note; ?></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+	<?php endif; ?>
+<?php endif; ?>

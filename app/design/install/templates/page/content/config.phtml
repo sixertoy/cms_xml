@@ -1,0 +1,26 @@
+<?php $helper = $this->getHelper(); ?>
+<?php
+$props = array
+(
+	"CookieActivation"=>"Cookie activ&eacute;s",
+	"PHPVersion"=>"Version PHP 5.3",
+	"ModRewrite"=>"Apache Mod. Rewrite",
+	"PDODefined"=>"Extension PDO",
+	"MySQLDriver"=>"MySQL Driver",
+	"APCCache"=>"APC Cache",
+);
+foreach( $props as $key=>$value ) :
+?>
+<div class="margin-top-10">
+		<?php if( $helper->getData( $key ) ) : ?>
+		<span class="label label-success">
+			<i class="icon icon-ok icon-white"></i>
+		</span>
+		<?php else : ?>
+		<span class="label label-important">
+			<i class="icon icon-remove icon-white"></i>
+		</span>
+		<?php endif;?>
+		<?php echo $value; ?>
+</div>
+<?php endforeach; ?>

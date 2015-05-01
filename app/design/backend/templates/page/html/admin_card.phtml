@@ -1,0 +1,13 @@
+<?php
+$role = $this->getRole();
+$username = $this->getUsername();
+?>
+<div class="well clearfix">
+	<ul>
+		<li><b><?php echo $username; ?></b></li>
+		<li><i><?php echo $role; ?></i></li>
+	</ul>
+	<p class="clearfix">
+		<button class="pull-right btn btn-danger btn-small">Deconnexion</button>
+	</p>
+</div>

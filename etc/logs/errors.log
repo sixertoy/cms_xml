@@ -1,0 +1,36 @@
+[1] :: 2013-Jan-11 10:18	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	98 => Impossible de charger le XML 'install/database.install.xml'.
+
+[1] :: 2013-Jan-11 10:18	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	98 => Impossible de charger le XML 'install/database.install.xml'.
+
+[1] :: 2013-Jan-11 10:18	D:\www\pure\www\lib\Bluemagic\Utils\DatabaseUtils.php
+	52 => Test de connection a la BDD :: pure NOK
+
+[1] :: 2013-Jan-11 13:41	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	98 => Impossible de charger le XML 'install/superadmin.install.xml'.
+
+[1] :: 2013-Jan-11 13:42	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	98 => Impossible de charger le XML 'install/site.install.xml'.
+
+[1] :: 2013-Oct-27 07:45	D:\www\pure\www\lib\Pure\Abstracts\AbstractLayout.php
+	275 => Aucune vue pour l'identifiant home_index n'a ete trouve
+
+[1] :: 2013-Oct-27 07:45	D:\www\pure\www\lib\Pure\Abstracts\AbstractLayout.php
+	163 => La vue 'home_index' n'a pas ete importe sur le layout application_layout
+
+[1] :: 2013-Oct-27 07:45	D:\www\pure\www\app\code\core\Pure\Core\Blocks\Head.php
+	172 => Impossible d'ajouter le fichier 'forms.css' a la liste des elements d'entete
+
+[1] :: 2013-Oct-27 07:45	D:\www\pure\www\app\code\core\Pure\Core\Blocks\Head.php
+	172 => Impossible d'ajouter le fichier 'styles.css' a la liste des elements d'entete
+
+[1] :: 2013-Oct-27 08:01	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	100 => Impossible de charger le XML 'install/database.install.xml'.
+
+[1] :: 2013-Oct-27 08:01	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	100 => Impossible de charger le XML 'install/superadmin.install.xml'.
+
+[1] :: 2013-Oct-27 08:02	D:\www\pure\www\lib\Bluemagic\Helpers\DomHelper.php
+	100 => Impossible de charger le XML 'install/site.install.xml'.
+

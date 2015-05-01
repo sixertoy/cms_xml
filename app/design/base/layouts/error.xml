@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>    
+	<default package="pure_core" action="error404" >
+		<update id="root" template="page/error">
+			<block id="error" type="pure_core\error" template="page/html/error"/>
+		</update>
+	</default>
+	
+	<error_error404>
+		<update id="root">
+			<update id="error">
+				<call method="errorMessage">
+					<value><![CDATA[La page demand&eacute; n'a pas &eacute;t&eacute; trouv&eacute;e]]></value>
+				</call>
+			</update>
+		</update>
+	</error_error404>
+	
+	<error_error500>
+		<update id="root">
+			<update id="error">
+				<call method="errorMessage">
+					<value><![CDATA[Vous n'avez pas les droits suffisants pour acc&egrave; &agrave; cette page demand&eacute;]]></value>
+				</call>
+			</update>
+		</update>
+	</error_error500>
+	
+	<!-- Ajouter un attribut 'clone'/'referer' -->
+	<error_errorAsync>
+		<update id="root">
+			<update id="error">
+				<call method="errorMessage">
+					<value><![CDATA[La page demand&eacute; n'a pas &eacute;t&eacute; trouv&eacute;e]]></value>
+				</call>
+			</update>
+		</update>
+	</error_errorAsync>
+	
+</layout>

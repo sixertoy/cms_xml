@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+  <default controller="index">
+		<block id="root" template="page/2columns-right">
+			<block id="head" type="pure_core\head" template="page/html/head">
+				<call method="title">
+					<value>Yoooo dkfhjkfhjdshkjfhdkjfhdhfkjhsdf</value>
+				</call>
+				<call method="addStylesheet">
+					<provider type="array">
+						<value>reset.css</value>
+						<value>clearfix.css</value>
+						<value>xdebug.css</value>
+						<value>bootstrap.min.css</value>
+					</provider>
+				</call>
+				<call method="addStylesheet">
+					<value>forms.css</value>
+				</call>
+				<call method="addStylesheet">
+					<value>styles.css</value>
+				</call>
+				<call method="addScript">
+					<value>jquery-1.8.3.min.js</value>
+				</call>
+			</block>
+			<block id="beforebody" type="pure_core\beforebody" template="page/html/beforebody" debuggable="true"/>
+			<block id="header" template="page/html/header"/>
+			<block id="breadcrumbs" type="pure_core\breadcrumbs" template="page/html/breadcrumbs"><call method="steps">
+					<provider type="array">
+						<value key="welcome">ere</value>
+						<value key="config">ere</value>
+						<value key="database">ere</value>
+						<value key="admin">ere</value>
+						<value key="site">ere</value>
+						<value key="resume">ere</value>
+						<value key="complete">ere</value>
+					</provider>
+				</call><call method="previousStep">
+					<value>resume</value>
+				</call><call method="currentStep">
+					<value>complete</value>
+				</call><call method="nextStep">
+					<value>start</value>
+				</call></block>
+			<block id="title" type="pure_core\content" template="false"><call method="content">
+					<value><![CDATA[Installation termin&eacute;e]]></value>
+				</call></block>
+			<block id="notifications" template="page/html/notifications"/>
+			<block id="content" template="page/content/complete"/>
+			<block id="sidebar" template="page/html/sidebar">
+				
+				<block id="stepper" template="page/sidebar/stepper"/>
+			</block>
+			<block id="afterbody" type="pure_core\afterbody" template="page/html/afterbody" debuggable="true">
+				<call method="addScript">
+					<provider type="array">
+						<value>bootstrap.min.js</value>
+						<value>jquery.generic_fix.js</value>
+					</provider>
+				</call>
+			</block>
+			<block id="debugger" type="pure_core\debugger" template="page/html/debugger"/>
+		</block>
+	</default>
+</layout>

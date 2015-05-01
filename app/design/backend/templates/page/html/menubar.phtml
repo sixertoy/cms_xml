@@ -1,0 +1,52 @@
+<?php
+$smarty = $this->getSmarty();
+$collection = $this->getItems();
+?>
+<div class="navbar">
+	<div class="navbar-inner clearfix">
+		<ul class="nav">
+		<?php
+		foreach( $collection->items() as $link ) :
+			$has_childs = ( $link->getChilds() ) ? $link->getChilds()->hasItems() : false;
+			$classes = ( $has_childs ) ? "dropdown": "";
+			$classes .= ( $this->isCurrent( $link ) ) ? " active": "";
+			?>
+			<li class="<?php echo $classes;?>">
+				<?php
+				$smarty->assign( "label", $link->getLabel() );
+				$smarty->assign( "url", ( ( $has_childs ) ? "#" : $link->get() ) );
+				if( $link->getIcon() ) $smarty->assign( "icon", $link->getIcon() );
+				$smarty->assign( "classes", ( ( $has_childs ) ? "dropdown-toggle" : "" ) );
+				if( $has_childs ) $smarty->display( "bootstrap/dropdown_link.tpl" );
+				else $smarty->display( "bootstrap/icon_link.tpl" );
+				?>
+				<?php if( $has_childs ) : ?>
+				<ul class="dropdown-menu">
+				<?php
+				$coll = $link->getChilds();
+				foreach( $coll->items() as $ln ) :
+					?>
+					<li>
+					<?php
+					$smarty->assign( "classes", "" );
+					$smarty->assign( "url", $ln->get() );
+					$smarty->assign( "label", $ln->getLabel() );
+					if( $ln->getIcon() ) $smarty->assign( "icon", $ln->getIcon() );
+					$smarty->display( "bootstrap/icon_link.tpl" );
+					?>
+					</li>
+					<?php
+				endforeach; ?>	
+				</ul>
+				<?php endif; ?>
+			</li>
+			<?php if( !$collection->isLast( $link ) ) : ?>
+			<li class="divider-vertical no-margin"></li>
+			<?php endif; ?>
+		<?php endforeach; ?>
+		</ul>
+		<form action="#" enctype="text/plain" name="navbar-search" id="navbar-search" class="navbar-search pull-right">
+    		<input type="text" class="search-query" placeholder="Search">
+    	</form>
+	</div>
+</div>

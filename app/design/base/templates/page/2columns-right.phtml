@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <?php $this->getChildHtml( "head" ); ?>
+</head>
+<body class="page-2columns-right <?php echo $this->getBodyClass(); ?>">
+    <?php $this->getChildHtml( "beforebody" ); ?>
+    <div class="jumbotron">
+    	<div class="container"><?php $this->getChildHtml( "header" ); ?></div>
+    </div>
+	<div class="container">
+        <?php $this->getChildHtml( "breadcrumbs" ); ?>
+		<?php $form = $this->getHelper()->getForm(); ?>
+		<div class="main columns2-right">
+		    <div class="row">
+		        <h3 class="title span12"><?php echo $this->getChildHtml( "title" ); ?></h3>
+		    </div>
+		    <div class="row">
+				<div class="notifications span12"><?php $this->getChildHtml( "notifications" ); ?></div>
+			</div>
+		    <div class="row">
+		        <form
+		            class="form-horizontal"
+		            id="<?php echo $form->getId(); ?>"
+		            method="<?php echo $form->getMethod(); ?>"
+		            enctype="<?php echo $form->getEnctype(); ?>"
+		            action="<?php echo htmlentities( $form->getAction() ); ?>" 
+		            >
+		    	   <div class="content span7"><?php $this->getChildHtml( "content" ); ?></div>
+		    	   <div class="sidebar span4 offset1"><?php $this->getChildHtml( "sidebar" ); ?></div>
+		    		<p><input type="hidden" name="submitted" id="submitted" value="is_submitted" /></p>
+		        </form>
+		    </div>
+		</div>
+	</div>
+	<?php $this->getChildHtml( "afterbody" ); ?>
+    <?php $this->getChildHtml( "debugger" ); ?>
+</body>
+</html>

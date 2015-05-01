@@ -1,0 +1,10 @@
+<?php
+$form = $this->getHelper()->getForm();
+?>
+<form
+    class="form-horizontal"
+    id="<?php echo $form->getId(); ?>"
+    method="<?php echo $form->getMethod(); ?>"
+    enctype="<?php echo $form->getEnctype(); ?>"
+    action="<?php echo htmlentities( $form->getAction() ); ?>" 
+    >

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    
+    <!-- Package_Layout_Controller -->
+    <default package="pure_core" action="authentificate">
+        <update id="root" template="page/login" >
+            <call method="setBodyClass"><value>login</value></call>
+            <update id="content" template="page/html/form" type="pure_core\form" />
+            <block id="submit" template="page/form/submit"  />
+        </update>
+    </default>
+    
+    <!-- View_Controller_Action -->
+    <view name="login_authentificate" />
+
+</layout>

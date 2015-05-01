@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <?php $this->getChildHtml( "head" ); ?>
+</head>
+<body class="page-1column <?php echo $this->getBodyClass(); ?>">
+    <?php $this->getChildHtml( "beforebody" ); ?>
+    <div class="jumbotron">
+    	<div class="container"><?php $this->getChildHtml( "header" ); ?></div>
+    </div>
+	<div class="container">
+        <?php $this->getChildHtml( "breadcrumbs" ); ?>
+		<div class="main column1">
+		    <div class="row">
+		        <h3 class="title span12"><?php echo $this->getChildHtml( "title" ); ?></h3>
+		    </div>
+		    <div class="row">
+				<div class="notifications span12"><?php $this->getChildHtml( "notifications" ); ?></div>
+			</div>
+		    <div class="row">
+		    	   <div class="content span12"><?php $this->getChildHtml( "content" ); ?></div>
+		    </div>
+		</div>
+	</div>
+	<?php $this->getChildHtml( "afterbody" ); ?>
+    <?php $this->getChildHtml( "debugger" ); ?>
+</body>
+</html>

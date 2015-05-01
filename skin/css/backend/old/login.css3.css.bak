@@ -1,0 +1,120 @@
+﻿a{
+	color: #FFF;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #033459;
+	-moz-text-shadow: 1px 1px 0 #033459;
+	-webkit-text-shadow: 1px 1px 0 #033459;
+}
+
+a:hover{ color: #9ED3FC; }
+
+body{
+	color: #FFF;
+	overflow: hidden;
+	background: url( ../img/login/login_bg.jpg );
+}
+
+dd{
+	height: 25px;
+	padding: 7px;
+	line-height: 25px;
+	border: 1px solid transparent;
+	border-radius: 5px 5px 5px 5px;
+	background: rgba(0, 0, 0, 0.25 );
+	-moz-border-radius: 5px 5px 5px 5px;
+}
+
+dl{ margin-bottom: 20px; }
+
+dt{ margin-bottom: 7px; }
+
+form dl:last-child{
+	float: right;
+	text-align: right;
+	text-shadow: 0 0 0 0;
+	-moz-text-shadow: 0 0 0 0;
+	-webkit-text-shadow: 0 0 0 0;
+}
+
+form dl:last-child dd{
+	width: 120px;
+	height: 25px;
+	font-weight:bold;
+	line-height: 25px;
+	text-align: center;	
+	background: transparent;
+	/*
+	border: 1px solid transparent;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	background: linear-gradient( #0090FF, #0561A7 );
+	background: -o-linear-gradient( #0090FF, #0561A7 );
+	background: -moz-linear-gradient( #0090FF, #0561A7 );
+	background: -webkit-linear-gradient( #0090FF, #0561A7 );
+	*/
+}
+
+input{
+	border:0;
+	width: 88%;
+	color: #FFF;
+	padding:7px;
+	font-size: 11px;
+	background: transparent;
+}
+
+input[type="submit"]{
+	color:#FFF;
+	width: 125px;
+	height: 37px;
+	cursor:pointer;
+	font-weight:bold;
+	line-height: 37px;
+	text-align: center;
+	border: 1px solid transparent;
+	border-radius: 5px 5px 5px 5px;
+	-o-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	background: linear-gradient( #0090FF, #0561A7 );
+	background: -o-linear-gradient( #0090FF, #0561A7 );
+	background: -moz-linear-gradient( #0090FF, #0561A7 );
+	background: -webkit-linear-gradient( #0090FF, #0561A7 );
+}
+
+input:invalid + span:after{
+	content: url( ../img/login/x_11x11.png );
+	margin-left: 5px;
+}
+
+input:required, input:valid, input:invalid{ border: 0; }
+
+input:valid + span:after{
+	content: url( ../img/login/check_12x10.png );
+	margin-left: 5px;
+}
+
+label{
+	color: #636363;
+	text-shadow: 1px 1px 0 #000;
+	-moz-text-shadow: 1px 1px 0 #000;
+	-webkit-text-shadow: 1px 1px 0 #000;
+}
+
+.container_6{ margin-top: 150px; }
+
+#errorbox{
+	padding: 20px 0;
+	border: 0px solid transparent;
+	background: rgba(0, 0, 0, 0.45 );
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+}
+
+#loginbox {
+	padding: 20px 0;
+	border: 0px solid transparent;
+	background: rgba(0, 0, 0, 0.25 );
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+}

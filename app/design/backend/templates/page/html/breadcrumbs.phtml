@@ -1,0 +1,23 @@
+<?php $is_next = false; ?>
+<ul class="breadcrumb">
+    <li>tiotooto</li>
+	<?php foreach( $this->getSteps() as $key=>$value ): ?>
+		<?php $current = $this->getCurrentStep(); ?>
+		<?php $is_current = ( ( $key == $current ) ); ?>
+    	<?php if( $is_current ) : ?>
+        	<?php $is_next = true; ?>
+        	<li class="active">
+        		<span><?php echo $value; ?></span><em class="divider">/</em>
+        	</li>
+        <?php elseif( $is_next ): ?>
+        	<li class="next">
+        		<span><?php echo $value; ?></span><em class="divider">/</em>
+        	</li>
+        <?php else: ?>
+        	<li class="previous">
+        		<?php $link = $this->getLink( $this->getCurrentView(), $this->getCurrentLayout(), $key ); ?>
+        		<a href="<?php echo  $link; ?>"><?php echo $value; ?></a><em class="divider">/</em>
+        	</li>
+        <?php endif; ?>
+	<?php endforeach; ?>
+</ul>

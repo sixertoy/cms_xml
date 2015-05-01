@@ -1,0 +1,20 @@
+<?php if( !$this->isApplicationReady() ) : ?>
+<?php $block = $this->getBlockById( "breadcrumbs" ); ?>
+<div class="form-actions">
+	<?php if( $block->getPreviousStep() ) : ?>
+	<?php $back_link = $this->getHelper()->getLink( $this->getCurrentView(), $this->getCurrentLayout(), $block->getPreviousStep() ); ?>
+    <a
+        class="btn"
+        type="button"
+        href="<?php echo $back_link; ?>"
+    >Pr&eacute;c&eacute;dent</a>
+    <?php endif; ?>
+    <?php if( $block->getNextStep() ) : ?>
+    <button
+        type="submit"
+        class="btn btn-success"
+    >Continuer</button>
+    <?php endif; ?>
+	<input type="hidden" name="submitted" id="submitted" value="is_submitted" />
+</div>
+<?php endif; ?>

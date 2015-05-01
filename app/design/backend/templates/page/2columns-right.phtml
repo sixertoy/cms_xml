@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <?php $this->getChildHtml( "head" ); ?>
+</head>
+<body class="backend-page <?php echo $this->getBodyClass(); ?>">
+	<?php $this->getChildHtml( "beforebody" ); ?>
+	<div id="main-container" class="clearfix">
+		<div id="main-sidebar" class="sidebar f-left">
+			<?php $this->getChildHtml( "sidebar.explorer" ); ?>
+		</div>
+		<div id="main-content" class="wrapper">
+			<?php $this->getChildHtml( "menubar" ); ?>
+			<?php $this->getChildHtml( "breadcrumbs" ); ?>
+            <?php $this->getChildHtml( "content.notifications" ); ?>
+			<div class="container-fluid">
+				<?php $this->getChildHtml( "content.toolbar.actions" ); ?>
+				<?php $this->getChildHtml( "content.inner" ); ?>
+			</div>
+			<div id="pusher">&nbsp;</div>
+		</div>
+		<div id="footer">
+			<?php $this->getChildHtml( "footer" ); ?>
+		</div>
+	</div>
+	<?php $this->getChildHtml( "afterbody" ); ?>
+	<?php $this->getChildHtml( "debugger" ); ?>
+</body>
+</html>

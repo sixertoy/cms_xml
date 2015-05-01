@@ -1,0 +1,94 @@
+/*----------------------------------------------------------------------------
+Table Options
+----------------------------------------------------------------------------*/
+
+div.table-options-icons{
+	line-height: 24px;
+	height: 24px;
+	overflow: hidden;
+}
+
+div.table-options-icons a{
+	float: left;
+	width: 24px;
+	height: 24px;
+	display: block;
+	margin-left: 8px;
+}
+
+div.table-options-icons a:hover{ background-position: 0 -24px; }
+
+.icon-delete{
+	background: url( ../../img/table/table_options-icon_delete.gif );
+}
+
+.icon-edit{
+	background: url( ../../img/table/table_options-icon_edit.gif );
+}
+
+#datagrid-table tbody td{ padding: 0 0 0 10px; border: 1px solid #d2d2d2; }
+
+#datagrid-table tbody td:first-child{ padding: 0; }
+
+#datagrid-table tbody tr:hover{ cursor: pointer; background: #f0ffff; }
+
+#datagrid-table tfoot td{ padding-top: 30px; }
+
+#datagrid-table tfoot td:last-child{ text-align: right; }
+
+#datagrid-table thead th{ padding: 0 0 0 10px; border-left: 1px solid #373737; }
+
+/* Le span est utilise dans la jquery.checkbox pour ajouter les icones */
+#datagrid-table thead th b{
+	color: #fff;
+	font-size: 13px;
+	cursor: pointer;
+	padding: 0 10px 0 0;
+	font-family: Tahoma;
+	text-decoration: none;
+	background: transparent;
+}
+
+#datagrid-table thead th.headerSortDown b{
+	background: url( "../../img/table/table_sort_arrow_down.gif" ) right no-repeat;
+}
+
+#datagrid-table thead th.headerSortUp b{
+	background: url( "../../img/table/table_sort_arrow_up.gif" ) right no-repeat;
+}
+
+/*----------------------------------------------------------------------------
+Datagrid
+----------------------------------------------------------------------------*/
+#datagrid-table thead th.headerSortUp b,
+#datagrid-table thead th.headerSortDown b,
+#datagrid-table thead th:hover span{ color: #94b52c; }
+
+#datagrid-table thead th:first-child {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	width: 29px;
+	min-width: 29px;
+	background: url(../../img/table/table_header_checkbox.jpg) no-repeat left top;
+}
+
+#datagrid-table thead th:last-child{
+	width: 80px;
+	min-width: 80px;
+	max-width: 80px;
+	background: url( "../../img/table/table_header_options.jpg" ) no-repeat right top;
+}
+
+#datagrid-table thead,
+#datagrid-table thead th{
+	height: 47px;
+	background: linear-gradient( #696969, #404040 );
+	background: -o-linear-gradient( #696969, #404040 ); /*opera*/
+	background: -moz-linear-gradient( #696969, #404040 ); /*firefox*/
+	background: -webkit-linear-gradient( #696969, #404040 ); /*safari*/
+}
+
+#datagrid-table tr.alternate-row{ background: #ececec; }
+
+#pagination{ }

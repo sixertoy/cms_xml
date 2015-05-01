@@ -1,0 +1,46 @@
+/***********************************************************************/
+/* Classes */
+/***********************************************************************/
+
+.rounded-corners( @radius: 5px ) {
+  border-radius: @radius;
+  -o-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.top-rounded-corners( @radius: 5px ) {
+  border-radius: @radius @radius 0 0;
+  -o-border-radius: @radius @radius 0 0;
+  -moz-border-radius: @radius @radius 0 0;
+  -webkit-border-radius: @radius @radius 0 0;
+}
+
+.text-shadow( @color:#FFF ){
+    text-shadow: 1px 1px 0 @color;
+    -o-text-shadow: 1px 1px 0 @color;
+    -moz-text-shadow: 1px 1px 0 @color;
+    -webkit-text-shadow: 1px 1px 0 @color;
+}
+
+/* http://www.css3.info/preview/box-shadow/ */
+.drop-shadow( @color:#000 ){
+    box-shadow: 0 0 4px rgba( 0, 0, 0, 0.1 );
+    -moz-box-shadow: 0 0 4px rgba( 0, 0, 0, 0.1 );
+    -webkit-box-shadow: 0 0 4px rgba( 0, 0, 0, 0.1 );
+    /* For IE 8 */
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=@strength, Direction=135, Color='@color')";*/
+	/* For IE 5.5 - 7 */
+	/*filter: progid:DXImageTransform.Microsoft.Shadow(Strength=@strength, Direction=135, Color='@color');*/
+}
+
+/***********************************************************************/
+/* Styles */
+/***********************************************************************/
+
+#page{ .rounded-corners(20px); }
+.header{ .top-rounded-corners(15px); }
+
+.button,
+input[type="button"],
+input[type="submit"]{ .rounded-corners }

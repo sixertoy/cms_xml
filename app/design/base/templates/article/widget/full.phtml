@@ -1,0 +1,19 @@
+<div class="article">
+	<?php /* Titre */ ?>
+    <h1 class="article-title"><?php echo $article->getTitle(); ?></h1>
+    <?php /* Date */ ?>
+    <div class="article-date"><?php echo $article->getDate(); ?></div>
+    <div class="article-body">
+        <?php /* Image */ ?>
+        <?php if( !empty( $image ) ) : ?>
+        <div class="article-media">
+            <img src="<?php echo $image->getSource(); ?>" width="<?php echo $image->getWidth(); ?>" height="<?php echo $image->getHeight(); ?>" />
+        </div>
+        <?php endif; ?>
+    	<?php /* Sous titres */ ?>
+        <h2><?php echo $article->getSubTitle(); ?></h2>
+        <?php /* Contenu */ ?>
+        <p><?php echo $article->getContent(); ?></p>
+    </div>
+    <?php /* @TODO Affichage de la barre de partage, commentaires... */ ?>
+</div>
